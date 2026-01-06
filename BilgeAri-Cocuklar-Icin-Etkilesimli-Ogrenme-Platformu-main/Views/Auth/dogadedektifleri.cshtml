@@ -1,0 +1,117 @@
+@{
+    ViewData["Title"] = "Doğa Dedektifleri";
+    Layout = "_Layout";
+}
+
+<!-- Sayfaya özel CSS -->
+<link rel="stylesheet" href="~/css/dogadedektifleri.css">
+
+<div class="dod-page">
+
+    <!-- ================= NAVBAR ================= -->
+    <!-- Layout'ta navbar varsa BURAYI SİLEBİLİRSİN -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/Home/Index">
+                <img src="~/images/navbariconlast.png" alt="Bilge Arı" width="40" height="40"
+                     class="d-inline-block align-text-top me-2">
+                <span class="fw-bold">Bilge Arı</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bilgeAriNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="bilgeAriNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/Home/Index">🏠 Anasayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">⏳ Zaman Yolculuğu</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="/Doga/Index">🌳 Doğa Dedektifliği</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/KodlamaUzmani">💻 Kodlama Uzmanı</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/FelsefiBilgin">🤔 Felsefi Bilgin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">🧪 Bilim Bahçesi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">🗣 İngilizce Dehası</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <header class="dod-hero">
+        <h1>🌿 Doğa Dedektifleri Macerası</h1>
+        <p>Keşfet, oyna, öğren ve doğayı koru!</p>
+    </header>
+
+    <!-- ================= BİLGİ BALONLARI ================= -->
+    <div class="info-box left">🌳 Ağaçlar yılda 48 ton CO₂ emer.</div>
+    <div class="info-box right">🐝 Arılar olmadan meyveler olmaz!</div>
+
+    <!-- ================= BİTKİ BAHÇESİ ================= -->
+    <section class="dod-section">
+        <h2>🌸 Bitki Bahçesi</h2>
+
+        <div class="plant-grid">
+            <div class="plant-card">
+                <img src="~/images/rose.jpg" alt="Gül">
+                <p>🌹 Gül – Güzelliği ile bilinir.</p>
+            </div>
+            <div class="plant-card">
+                <img src="~/images/tulip.jpg" alt="Lale">
+                <p>🌷 Lale – Baharın gelişi.</p>
+            </div>
+            <div class="plant-card">
+                <img src="~/images/cactus.jpg" alt="Kaktüs">
+                <p>🌵 Kaktüs – Susuz yaşayabilir.</p>
+            </div>
+            <div class="plant-card">
+                <img src="~/images/sunflower.jpg" alt="Ayçiçeği">
+                <p>🌻 Ayçiçeği – Güneşi takip eder.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GERİ DÖNÜŞÜM OYUNU ================= -->
+    <section class="dod-section">
+        <h2>♻️ Geri Dönüşüm Oyunu</h2>
+
+        <div class="drag-area">
+            <img src="~/images/paper.png" id="paper" draggable="true">
+            <img src="~/images/plastic.png" id="plastic" draggable="true">
+            <img src="~/images/banana.png" id="banana" draggable="true">
+        </div>
+
+        <div class="bin-area">
+            <div class="bin" id="paperBin">📄 Kağıt</div>
+            <div class="bin" id="plasticBin">🧴 Plastik</div>
+            <div class="bin" id="organicBin">🍌 Organik</div>
+        </div>
+    </section>
+
+    <!-- ================= HAYVAN – HABİTAT ================= -->
+    <section class="dod-section">
+        <h2>🐾 Hayvan – Habitat Eşleştirme</h2>
+
+        <div class="animal-area">
+            <img src="~/images/lion.jpg" id="lion" draggable="true">
+            <img src="~/images/fish.jpg" id="fish" draggable="true">
+            <img src="~/images/bird.jpg" id="bird" draggable="true">
+        </div>
+
+        <div class="habitat-area">
+            <div class="habitat" id="forest">🌳 Orman</div>
+            <div class="habitat" id="ocean">🌊 Deniz</div>
+            <div class="habitat" id="sky">☁️ Gökyüzü</div>
+        </div>
+    </section>
+
+    <!-- ================= PUAN ================= -->
+    <div id="score">
+        Toplam Puan: <span id="scoreValue">0</span>
+    </div>
+
+</div>
+
+<!-- Sayfaya özel JS -->
+<script src="~/js/dogadedektifleri.js"></script>

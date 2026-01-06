@@ -1,0 +1,90 @@
+/* =========================================================
+   Signup – MVC Uyumlu Stil Dosyası
+   Not: Tüm stiller .signup-page altında izole edilmiştir
+========================================================= */
+
+/* ---------- SAYFA GENELİ ---------- */
+.signup-page {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #fff8e1 0%, #fffde7 100%);
+  color: #5d4037;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+}
+
+/* ---------- HEADER ---------- */
+.signup-page .header {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.signup-page .header h1 {
+  font-family: "Fredoka One", cursive;
+  color: #f57f17;
+  font-size: 50px;
+  text-shadow: 2px 2px 0 #fff176;
+}
+
+.signup-page .header p {
+  font-size: 16px;
+  color: #795548;
+  font-weight: 600;
+}
+
+/* ---------- SIGNUP KUTUSU ---------- */
+.signup-page .login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.signup-page .login-box {
+  width: 370px;
+  background: #fffce8;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  text-align: center;
+  border: 3px solid #f6c44f;
+}
+
+/* ---------- INPUT ---------- */
+.signup-page .login-box input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ffd35f;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.signup-page .login-box input:focus {
+  border-color: #f4b000;
+}
+
+/* ---------- BUTTON ---------- */
+.signup-page .login-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #ffcc40;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.signup-page .login-box button:hover {
+  background: #f4b000;
+}
+
+/* ---------- LINKLER ---------- */
+.signup-page .links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}

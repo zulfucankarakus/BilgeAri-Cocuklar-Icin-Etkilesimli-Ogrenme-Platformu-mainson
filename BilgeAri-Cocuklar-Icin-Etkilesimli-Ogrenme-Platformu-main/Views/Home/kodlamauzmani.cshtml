@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Kodlama Uzmanı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="yazilim-sayfasi">
+    <div class="software-container-v3">
+
+        <!-- ===== ARI KRALİÇE MASKOT ===== -->
+        <div class="mascot-container">
+            <svg class="bee-queen-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <ellipse cx="50" cy="55" rx="35" ry="25" fill="#ffd700" />
+                <rect x="25" y="45" width="50" height="8" fill="black" />
+                <rect x="20" y="58" width="60" height="8" fill="black" />
+                <circle cx="50" cy="30" r="20" fill="#ffd700" />
+                <circle cx="40" cy="25" r="5" fill="black" />
+                <circle cx="60" cy="25" r="5" fill="black" />
+                <path d="M40 10 L30 0" stroke="black" stroke-width="3" />
+                <circle cx="30" cy="0" r="3" />
+                <path d="M60 10 L70 0" stroke="black" stroke-width="3" />
+                <circle cx="70" cy="0" r="3" />
+            </svg>
+
+            <div class="speech-bubble" id="kodo-bubble">
+                Vızzz! Ben Arı Kraliçe! 🐝 Yazılımın tatlı dünyasına hoş geldin!
+            </div>
+        </div>
+
+        <!-- ===== ETKİNLİK 1: CANAVAR ===== -->
+        <div class="activity-card" data-kodo-text="Kodlar canavarı değiştirir!">
+            <h2>👾 Kod ile Canavar Yarat!</h2>
+
+            <div class="monster-display">
+                <svg id="monster" viewBox="0 0 100 100" width="150">
+                    <path id="monster-hat"
+                          d="M 40 25 Q 50 5 60 25 L 55 28 Q 50 15 45 28 Z" />
+                    <circle id="monster-body" cx="50" cy="60" r="40" />
+                    <circle id="monster-eye1" cx="35" cy="50" r="8" />
+                    <circle id="monster-eye2" cx="65" cy="50" r="8" />
+                    <path id="monster-mouth"
+                          d="M 30 75 Q 50 60 70 75"
+                          stroke="black" stroke-width="3" fill="none" />
+                </svg>
+            </div>
+
+            <div class="controls">
+                <button id="btn-color" class="control-btn">Rengini Değiştir</button>
+                <button id="btn-eyes" class="control-btn">Gözleri Büyüt</button>
+                <button id="btn-mouth" class="control-btn">Mutlu Yap</button>
+                <button id="btn-hat" class="control-btn">👑 Anten</button>
+                <button id="btn-reset" class="control-btn reset-btn">Sıfırla</button>
+            </div>
+        </div>
+
+        <!-- ===== ETKİNLİK 2: BUG HUNT ===== -->
+        <div class="activity-card">
+            <h2>🐞 Hata Avı</h2>
+
+            <div class="bug-hunt-steps">
+                <div class="bug-step" id="step1">👟 Ayakkabı</div>
+                <div class="bug-step" id="step2">🧦 Çorap</div>
+                <div class="bug-step" id="step3">🎒 Çanta</div>
+            </div>
+
+            <div id="bug-feedback" class="feedback-text"></div>
+            <button id="btn-fix-bug" class="control-btn">Düzelt</button>
+        </div>
+
+        <!-- ===== TEMA BUTONLARI ===== -->
+        <div class="theme-toggle">
+            <span id="dark-mode-btn">🌙</span>
+            <span id="light-mode-btn">🌞</span>
+        </div>
+
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/script.js"></script>
+}
+

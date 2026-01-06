@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Giriş Yap";
+    Layout = "_Layout";
+}
+
+<!-- Sayfaya özel CSS -->
+<link rel="stylesheet" href="~/css/login.css">
+
+<div class="login-page">
+
+    <div class="header">
+        <h1>🐝 BeeLearn</h1>
+        <p>Bilge Arı dünyasına hoş geldin!</p>
+    </div>
+
+    <div class="login-container">
+        <div class="login-box">
+
+            <h2>Giriş Yap</h2>
+
+            <form id="loginForm">
+
+                <label>E-posta</label>
+                <input type="email" id="email" placeholder="E-posta adresin">
+
+                <label>Şifre</label>
+                <input type="password" id="password" placeholder="Şifren">
+
+                <!-- Robot doğrulama -->
+                <label>Robot musun?</label>
+                <input type="checkbox" id="robotCheck"> Robot değilim ✔
+
+                <div id="robotWrapper" style="display:none;">
+                    <label>Doğrulama sorusu:</label>
+                    <p id="robotQuestion" style="font-weight:bold"></p>
+                    <input type="number" id="robotAnswer" placeholder="Cevap">
+                </div>
+
+                <button type="submit">Giriş Yap</button>
+
+                <p id="loginMessage"></p>
+
+                <div class="links">
+                    <a href="/Auth/Forgot">Şifremi unuttum</a>
+                    <a href="/Auth/Signup">Kayıt ol</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Sayfaya özel JS -->
+<script src="~/js/login.js"></script>
