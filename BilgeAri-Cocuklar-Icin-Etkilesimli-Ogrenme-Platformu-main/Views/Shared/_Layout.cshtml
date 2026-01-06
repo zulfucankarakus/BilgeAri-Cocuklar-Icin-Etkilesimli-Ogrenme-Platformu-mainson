@@ -196,26 +196,28 @@
     @RenderSection("Styles", required: false)
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
+    @if (Context.Session.GetString("UserId") != null)
+    {
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
 
 
 
-            <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="#">
 
-                <img src="~/images/navbariconlast.png" alt="Bilge Arı" width="40" height="40" class="d-inline-block align-text-top me-2">
+                    <img src="~/images/navbariconlast.png" alt="Bilge Arı" width="40" height="40" class="d-inline-block align-text-top me-2">
 
-                <span class="fw-bold">Bilge Arı</span>
+                    <span class="fw-bold">Bilge Arı</span>
 
-            </a>
+                </a>
 
 
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bilgeAriNavbar" aria-controls="bilgeAriNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bilgeAriNavbar" aria-controls="bilgeAriNavbar" aria-expanded="false" aria-label="Toggle navigation">
 
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
 
-            </button>
+                </button>
 
 
 
