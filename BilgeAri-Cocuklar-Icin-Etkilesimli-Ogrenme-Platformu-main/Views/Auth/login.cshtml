@@ -1,3 +1,4 @@
+@model BilgeAriMVC.Models.LoginViewModel
 @{
     ViewData["Title"] = "Giriş Yap";
     Layout = "_Layout";
@@ -19,31 +20,24 @@
 
             <h2>Giriş Yap</h2>
 
-            <form id="loginForm">
+            <form id="loginForm" asp-controller="Auth" asp-action="Login" method="post">
+                @Html.AntiForgeryToken()
 
                 <label>E-posta</label>
-                <input type="email" id="email" placeholder="E-posta adresin">
+                <input type="email" asp-for="Email" id="email" placeholder="E-posta adresin" required>
+                <span asp-validation-for="Email" class="text-danger"></span>
 
                 <label>Şifre</label>
-                <input type="password" id="password" placeholder="Şifren">
-
-                <!-- Robot doğrulama -->
-                <label>Robot musun?</label>
-                <input type="checkbox" id="robotCheck"> Robot değilim ✔
-
-                <div id="robotWrapper" style="display:none;">
-                    <label>Doğrulama sorusu:</label>
-                    <p id="robotQuestion" style="font-weight:bold"></p>
-                    <input type="number" id="robotAnswer" placeholder="Cevap">
-                </div>
+                <input type="password" asp-for="Password" id="password" placeholder="Şifren" required>
+                <span asp-validation-for="Password" class="text-danger"></span>
 
                 <button type="submit">Giriş Yap</button>
 
                 <p id="loginMessage"></p>
 
                 <div class="links">
-                    <a href="/Auth/Forgot">Şifremi unuttum</a>
-                    <a href="/Auth/Signup">Kayıt ol</a>
+                    <a asp-controller="Auth" asp-action="Forgot">Şifremi unuttum</a>
+                    <a asp-controller="Auth" asp-action="Signup">Kayıt ol</a>
                 </div>
 
             </form>
@@ -54,5 +48,33 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/login.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const messageEl = document.getElementById('loginMessage');
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                messageEl.textContent = result.message;
+                messageEl.style.color = result.success ? 'green' : 'red';
+                
+                if (result.success) {
+                    setTimeout(() => {
+                        window.location.href = '@Url.Action("Index", "Home")';
+                    }, 1000);
+                }
+            } catch (error) {
+                messageEl.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                messageEl.style.color = 'red';
+            }
+        });
+    </script>
 }
