@@ -149,7 +149,7 @@
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   font-weight: 600;
-  z-index: 10;
+  z-index: 100;
 }
 
 .info-box.left { left: 20px; }
