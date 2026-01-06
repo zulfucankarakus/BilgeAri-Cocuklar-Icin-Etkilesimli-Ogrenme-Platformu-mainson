@@ -73,6 +73,8 @@
             background-color: #0e6e5f !important;
             border: none !important;
             min-width: 200px !important;
+            z-index: 10000 !important;
+            position: absolute !important;
         }
 
         .dropdown-item {
@@ -93,6 +95,13 @@
         /* Dropdown açıldığında göster */
         .dropdown-menu.show {
             display: block !important;
+            z-index: 10000 !important;
+        }
+        
+        /* Dropdown parent'ı da yüksek z-index'e sahip olmalı */
+        .nav-item.dropdown {
+            position: relative;
+            z-index: 10000 !important;
         }
 
         /* Footer Stilleri */
