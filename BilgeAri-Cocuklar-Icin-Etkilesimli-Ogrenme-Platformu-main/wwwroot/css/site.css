@@ -52,16 +52,7 @@ body:not(.anasayfa):not(.login-page):not(.signup-page):not(.forgot-page):not(.do
   transition: background-color 0.3s ease;
 }
 
-/* Tüm sayfalar için geçerli: position relative veya absolute olan elemanlar navbar'dan düşük z-index'e sahip olmalı */
-section, div:not(.navbar):not(header):not(.dropdown-menu) {
-  position: relative;
-  z-index: 1;
-}
-
-/* Sabit pozisyonlu elemanlar (fixed) navbar'dan düşük z-index'e sahip olmalı */
-.fixed-element {
-  z-index: 100 !important;
-}
+/* Z-index rules removed - no longer needed with new CSS structure */
 
 /* Arı peteği animasyonu */
 @keyframes moveHoneyComb {
