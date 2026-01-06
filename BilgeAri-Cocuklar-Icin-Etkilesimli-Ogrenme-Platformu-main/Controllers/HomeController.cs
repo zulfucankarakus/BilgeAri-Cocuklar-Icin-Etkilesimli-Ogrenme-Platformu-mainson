@@ -1,9 +1,11 @@
 using System.Diagnostics;
 using BilgeAriMVC.Models;
+using BilgeAriMVC.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BilgeAriMVC.Controllers
 {
+    [AuthorizeSession] // Tüm action'lara session kontrolü ekle
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -15,6 +17,9 @@ namespace BilgeAriMVC.Controllers
 
         public IActionResult Index()
         {
+            // Kullanıcı bilgilerini ViewBag'e aktar
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            ViewBag.UserEmail = HttpContext.Session.GetString("UserEmail");
             return View();
         }
 
