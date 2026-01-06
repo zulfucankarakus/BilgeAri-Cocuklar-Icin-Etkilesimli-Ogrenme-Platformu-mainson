@@ -1,3 +1,4 @@
+@model BilgeAriMVC.Models.SignupViewModel
 @{
     ViewData["Title"] = "Kayıt Ol";
     Layout = "_Layout";
@@ -19,36 +20,31 @@
 
             <h2>Kayıt Ol</h2>
 
-            <form id="signupForm">
+            <form id="signupForm" asp-controller="Auth" asp-action="Signup" method="post">
+                @Html.AntiForgeryToken()
 
                 <label>Ad Soyad</label>
-                <input type="text" id="name" placeholder="Adını gir">
+                <input type="text" asp-for="Name" id="name" placeholder="Adını gir" required>
+                <span asp-validation-for="Name" class="text-danger"></span>
 
                 <label>E-posta</label>
-                <input type="email" id="email" placeholder="E-posta gir" disabled>
+                <input type="email" asp-for="Email" id="email" placeholder="E-posta gir" required>
+                <span asp-validation-for="Email" class="text-danger"></span>
 
                 <label>Şifre</label>
-                <input type="password" id="password" placeholder="Şifre gir" disabled>
+                <input type="password" asp-for="Password" id="password" placeholder="Şifre gir" required>
+                <span asp-validation-for="Password" class="text-danger"></span>
 
                 <p style="font-size:13px;color:#5d4037;">
                     Şifre ≥6 karakter, büyük-küçük harf, sayı ve özel karakter içermelidir.
                 </p>
 
-                <!-- Robot doğrulama -->
-                <label>Robot musun?</label>
-                <input type="checkbox" id="robotCheck">
-                <span>Robot değilim ✔</span>
-
-                <label>Doğrulama sorusu:</label>
-                <p id="robotQuestion" style="font-weight:bold"></p>
-                <input type="text" id="robotAnswer" placeholder="Cevap">
-
-                <button type="submit" id="registerBtn" disabled>Kayıt Ol</button>
+                <button type="submit" id="registerBtn">Kayıt Ol</button>
 
                 <p id="registerMessage"></p>
 
                 <div class="links">
-                    <a href="/Auth/Login">Zaten hesabım var</a>
+                    <a asp-controller="Auth" asp-action="Login">Zaten hesabım var</a>
                 </div>
 
             </form>
@@ -59,5 +55,33 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/signup.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const messageEl = document.getElementById('registerMessage');
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                messageEl.textContent = result.message;
+                messageEl.style.color = result.success ? 'green' : 'red';
+                
+                if (result.success) {
+                    setTimeout(() => {
+                        window.location.href = '@Url.Action("Index", "Home")';
+                    }, 1000);
+                }
+            } catch (error) {
+                messageEl.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                messageEl.style.color = 'red';
+            }
+        });
+    </script>
 }
