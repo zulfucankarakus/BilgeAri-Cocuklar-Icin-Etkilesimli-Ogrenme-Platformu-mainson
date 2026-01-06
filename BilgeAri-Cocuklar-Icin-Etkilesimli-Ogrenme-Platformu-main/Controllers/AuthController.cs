@@ -272,7 +272,7 @@ namespace BilgeAriMVC.Controllers
         // POST: /Auth/UpdateUser - Kullanıcı bilgilerini güncelle
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateUser(int id, string name, string email)
+        public async Task<IActionResult> UpdateUser(int id, string name)
         {
             var userId = HttpContext.Session.GetString("UserId");
             if (string.IsNullOrEmpty(userId))
@@ -294,25 +294,14 @@ namespace BilgeAriMVC.Controllers
                     return Json(new { success = false, message = "Kullanıcı bulunamadı" });
                 }
 
-                // E-posta değişikliği kontrolü
-                if (email != user.Email)
-                {
-                    var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Id != id);
-                    if (existingUser != null)
-                    {
-                        return Json(new { success = false, message = "Bu e-posta adresi başka bir kullanıcı tarafından kullanılıyor" });
-                    }
-                }
-
+                // Sadece isim güncellenir, email değişmez
                 user.Name = name;
-                user.Email = email;
                 user.UpdatedAt = DateTime.UtcNow;
 
                 await _context.SaveChangesAsync();
 
                 // Session'ı güncelle
                 HttpContext.Session.SetString("UserName", user.Name);
-                HttpContext.Session.SetString("UserEmail", user.Email);
 
                 return Json(new { success = true, message = "Profil başarıyla güncellendi" });
             }
