@@ -9,6 +9,13 @@
 <section class="hero">
 
     <h2>Keşfet, Öğren, Eğlen!</h2>
+    
+    @if (!string.IsNullOrEmpty(ViewBag.UserName))
+    {
+        <p style="font-size: 1.3rem; margin-bottom: 10px;">
+            Merhaba <strong style="color: #FFC107;">@ViewBag.UserName</strong>! 👋
+        </p>
+    }
 
     <p>Bilgi Kartları ve Macera Odaları ile Vız Vız Öğrenme Başlasın!</p>
 
