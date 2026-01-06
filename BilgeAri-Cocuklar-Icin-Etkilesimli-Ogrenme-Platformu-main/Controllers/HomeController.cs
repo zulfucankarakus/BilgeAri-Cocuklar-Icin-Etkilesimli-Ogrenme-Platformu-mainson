@@ -33,6 +33,21 @@ namespace BilgeAriMVC.Controllers
             return View("kodlamauzmani");
         }
 
+        public IActionResult dogadedektifleri()
+        {
+            return View();
+        }
+
+        public IActionResult bilimbahcesi()
+        {
+            return View();
+        }
+
+        public IActionResult ingilizcedehasi()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -40,4 +55,3 @@ namespace BilgeAriMVC.Controllers
         }
     }
 }
-//yorum
