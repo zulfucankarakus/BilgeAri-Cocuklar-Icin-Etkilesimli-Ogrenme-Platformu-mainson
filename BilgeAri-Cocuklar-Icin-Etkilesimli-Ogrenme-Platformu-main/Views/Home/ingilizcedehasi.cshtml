@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "İngilizce Dehası";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/anasayfa.css" asp-append-version="true" />
+}
+
+<section class="hero">
+    <h2>🗣 İngilizce Dehası</h2>
+    <p>İngilizce öğrenmenin eğlenceli yolunu keşfet!</p>
+</section>
+
+<div class="container">
+    <main role="main" style="padding: 40px 20px;">
+        <div class="content-section">
+            <h2>Yakında Burada!</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #5D4037;">
+                İngilizce Dehası sayfamız şu anda hazırlanıyor. Çok yakında eğlenceli kelime oyunları ve 
+                İngilizce pratik aktiviteleriyle karşınızda olacağız! 🎮📚
+            </p>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a asp-controller="Home" asp-action="Index" class="start-btn">Anasayfaya Dön</a>
+            </div>
+        </div>
+    </main>
+</div>
