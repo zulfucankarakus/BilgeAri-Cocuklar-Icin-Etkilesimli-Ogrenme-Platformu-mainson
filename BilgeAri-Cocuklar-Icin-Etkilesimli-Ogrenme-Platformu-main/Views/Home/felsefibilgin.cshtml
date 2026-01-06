@@ -1,10 +1,12 @@
-﻿@section Styles {
-    <link rel="stylesheet" href="~/css/felsefibilgin.css" />
+﻿@{
+    ViewData["Title"] = "Felsefi Bilgin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    ViewData["Title"] = "Felsefi Bilgin";
+@section Styles {
+    <link rel="stylesheet" href="~/css/felsefibilgin.css" asp-append-version="true" />
 }
+
 <header class="felsefe-header">
     <div class="container">
         <h1>🤔 Felsefi Bilgin: Neden Diye Sor!</h1>
