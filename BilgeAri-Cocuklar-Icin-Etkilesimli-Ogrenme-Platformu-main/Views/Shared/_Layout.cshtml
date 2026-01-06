@@ -345,6 +345,31 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script>
+        // Bootstrap dropdown debug ve fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bootstrap yüklendi mi kontrol et
+            if (typeof bootstrap === 'undefined') {
+                console.error('Bootstrap JS yüklenmedi!');
+            } else {
+                console.log('Bootstrap başarıyla yüklendi');
+            }
+            
+            // Dropdown elemanını bul
+            var dropdownToggle = document.getElementById('hesabimDropdown');
+            if (dropdownToggle) {
+                // Bootstrap 5 dropdown'ını başlat
+                try {
+                    var dropdown = new bootstrap.Dropdown(dropdownToggle);
+                    console.log('Dropdown başlatıldı');
+                } catch(e) {
+                    console.error('Dropdown başlatılamadı:', e);
+                }
+            }
+        });
+    </script>
+    
     @RenderSection("Scripts", required: false)
 
 </body>
