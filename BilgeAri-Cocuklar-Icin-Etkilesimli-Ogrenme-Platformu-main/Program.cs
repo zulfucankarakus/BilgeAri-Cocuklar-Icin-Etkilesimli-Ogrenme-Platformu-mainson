@@ -7,9 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Database bağlantısı (SQLite)
+var dbPath = Path.Combine(AppContext.BaseDirectory, "bilgeari.db");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") 
-        ?? "Data Source=bilgeari.db"));
+    options.UseSqlite($"Data Source={dbPath}"));
+
+Console.WriteLine($"Database konumu: {dbPath}");
 
 // Session servisi
 builder.Services.AddDistributedMemoryCache();
