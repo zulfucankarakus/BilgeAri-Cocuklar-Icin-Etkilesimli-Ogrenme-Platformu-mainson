@@ -12,6 +12,180 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BilgeAriMVC.styles.css" asp-append-version="true" />
     
+    <style>
+        /* Navbar Stilleri */
+        header {
+            background: #b2d8f9;
+            color: #0e6e5f;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            background-color: #b2d8f9 !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 20px;
+        }
+
+        .navbar-brand {
+            color: #0e6e5f !important;
+            font-weight: 700 !important;
+            font-family: 'Balsamiq Sans', cursive !important;
+            font-size: 1.5rem !important;
+        }
+
+        .navbar-brand:hover {
+            color: #FFC107 !important;
+        }
+
+        .navbar .nav-link {
+            color: #0e6e5f !important;
+            font-weight: 700 !important;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+            padding: 8px 15px !important;
+        }
+
+        .navbar .nav-link:hover {
+            color: #FFC107 !important;
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+        }
+
+        .navbar .nav-link.active {
+            color: #FFC107 !important;
+        }
+
+        .navbar-toggler {
+            border-color: #0e6e5f !important;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230e6e5f' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        .dropdown-menu {
+            background-color: #0e6e5f !important;
+            border: none !important;
+        }
+
+        .dropdown-item {
+            color: white !important;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #FFC107 !important;
+        }
+
+        .dropdown-divider {
+            border-top-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        /* Footer Stilleri */
+        footer {
+            background: #b2d8f9;
+            color: #0e6e5f;
+            padding: 25px 20px 10px 20px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 100;
+        }
+
+        .footer-content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+        }
+
+        .footer-column {
+            width: 30%;
+            padding: 0 15px;
+        }
+
+        footer h3 {
+            color: #0e6e5f;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-column a, .footer-column p {
+            color: #0e6e5f;
+            text-decoration: none;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #FFC107 !important;
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background: #0e6e5f;
+            color: white;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: background 0.3s, color 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background: #FFC107;
+            color: #0e6e5f;
+            transform: scale(1.1);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            border-top: 1px solid rgba(14, 110, 95, 0.1);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-copyright p {
+            color: #0e6e5f;
+            opacity: 0.7;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .social-icons {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    </style>
+    
     @RenderSection("Styles", required: false)
 </head>
 <body>
