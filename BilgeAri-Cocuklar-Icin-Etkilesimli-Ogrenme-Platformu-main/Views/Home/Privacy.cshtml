@@ -1,6 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Gizlilik Politikası";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+@section Styles {
+    <link rel="stylesheet" href="~/css/anasayfa.css" asp-append-version="true" />
+}
+
+<div class="container" style="padding: 40px 20px;">
+    <h1>@ViewData["Title"]</h1>
+    <p>Bu sayfada sitenin gizlilik politikası detaylandırılacaktır.</p>
+</div>
