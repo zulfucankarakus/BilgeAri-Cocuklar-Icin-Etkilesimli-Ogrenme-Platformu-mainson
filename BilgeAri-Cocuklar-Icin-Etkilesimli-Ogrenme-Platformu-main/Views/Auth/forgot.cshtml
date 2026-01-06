@@ -1,3 +1,4 @@
+@model BilgeAriMVC.Models.ForgotPasswordViewModel
 @{
     ViewData["Title"] = "Şifremi Unuttum";
     Layout = "_Layout";
@@ -19,27 +20,23 @@
 
             <h2>Şifre Yenileme</h2>
 
-            <form id="resetForm">
+            <form id="resetForm" asp-controller="Auth" asp-action="Forgot" method="post">
+                @Html.AntiForgeryToken()
 
                 <label>E-posta</label>
-                <input type="email" id="email" placeholder="Kayıtlı e-posta">
+                <input type="email" asp-for="Email" id="email" placeholder="Kayıtlı e-posta" required>
+                <span asp-validation-for="Email" class="text-danger"></span>
 
                 <label>Favori Pozitif Sayın</label>
-                <input type="number" id="fav" placeholder="Pozitif sayı gir">
-
-                <label>Robot musun?</label>
-                <input type="checkbox" id="robotCheck"> Robot değilim ✔
-
-                <label>Doğrulama sorusu:</label>
-                <p id="robotQuestion" style="font-weight:bold"></p>
-                <input type="number" id="robotAnswer" placeholder="Cevap">
+                <input type="number" asp-for="FavoriteNumber" id="fav" placeholder="Pozitif sayı gir" required>
+                <span asp-validation-for="FavoriteNumber" class="text-danger"></span>
 
                 <button type="submit">Bağlantı Gönder</button>
 
                 <p id="resetMessage"></p>
 
                 <div class="links">
-                    <a href="/Auth/Login">← Girişe Dön</a>
+                    <a asp-controller="Auth" asp-action="Login">← Girişe Dön</a>
                 </div>
 
             </form>
@@ -50,5 +47,33 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/forgot.js"></script>
+    <script>
+        document.getElementById('resetForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const messageEl = document.getElementById('resetMessage');
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                messageEl.textContent = result.message;
+                messageEl.style.color = result.success ? 'green' : 'red';
+                
+                if (result.success) {
+                    setTimeout(() => {
+                        window.location.href = '@Url.Action("Login", "Auth")';
+                    }, 2000);
+                }
+            } catch (error) {
+                messageEl.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                messageEl.style.color = 'red';
+            }
+        });
+    </script>
 }
