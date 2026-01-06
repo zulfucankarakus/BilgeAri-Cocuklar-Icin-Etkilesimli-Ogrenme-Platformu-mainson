@@ -3,8 +3,9 @@
     Layout = "_Layout";
 }
 
-<!-- Sayfaya özel CSS -->
-<link rel="stylesheet" href="~/css/login.css">
+@section Styles {
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+}
 
 <div class="login-page">
 
