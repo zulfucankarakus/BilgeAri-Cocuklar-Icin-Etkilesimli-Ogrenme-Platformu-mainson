@@ -3,40 +3,11 @@
     Layout = "_Layout";
 }
 
-<!-- Sayfaya özel CSS -->
-<link rel="stylesheet" href="~/css/dogadedektifleri.css">
+@section Styles {
+    <link rel="stylesheet" href="~/css/dogadedektifleri.css" asp-append-version="true" />
+}
 
 <div class="dod-page">
-
-    <!-- ================= NAVBAR ================= -->
-    <!-- Layout'ta navbar varsa BURAYI SİLEBİLİRSİN -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/Home/Index">
-                <img src="~/images/navbariconlast.png" alt="Bilge Arı" width="40" height="40"
-                     class="d-inline-block align-text-top me-2">
-                <span class="fw-bold">Bilge Arı</span>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bilgeAriNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="bilgeAriNavbar">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/Home/Index">🏠 Anasayfa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">⏳ Zaman Yolculuğu</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="/Doga/Index">🌳 Doğa Dedektifliği</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="/Home/KodlamaUzmani">💻 Kodlama Uzmanı</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Home/FelsefiBilgin">🤔 Felsefi Bilgin</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">🧪 Bilim Bahçesi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">🗣 İngilizce Dehası</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
     <!-- ================= HERO ================= -->
     <header class="dod-hero">
