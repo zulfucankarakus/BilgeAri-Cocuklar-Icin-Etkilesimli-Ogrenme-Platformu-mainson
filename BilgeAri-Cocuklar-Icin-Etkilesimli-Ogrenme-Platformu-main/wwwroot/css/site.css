@@ -15,7 +15,11 @@ body {
   font-family: 'Nunito', 'Poppins', 'Arial Rounded MT Bold', sans-serif;
   margin: 0;
   padding: 0;
-  
+  margin-bottom: 60px;
+}
+
+/* Sadece bazı sayfalar için bal peteği arka planı */
+body:not(.anasayfa):not(.login-page):not(.signup-page):not(.forgot-page):not(.dod-page) {
   /* Ana sarı renk (bal rengi) */
   background-color: #ffe082;
   
@@ -46,8 +50,6 @@ body {
   
   /* Tema değişiminde yumuşak geçiş */
   transition: background-color 0.3s ease;
-  
-  margin-bottom: 60px;
 }
 
 /* Tüm sayfalar için geçerli: position relative veya absolute olan elemanlar navbar'dan düşük z-index'e sahip olmalı */
