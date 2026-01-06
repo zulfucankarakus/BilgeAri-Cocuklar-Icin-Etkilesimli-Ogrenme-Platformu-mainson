@@ -72,11 +72,13 @@
         .dropdown-menu {
             background-color: #0e6e5f !important;
             border: none !important;
+            min-width: 200px !important;
         }
 
         .dropdown-item {
             color: white !important;
             transition: background 0.2s, color 0.2s;
+            padding: 10px 20px !important;
         }
 
         .dropdown-item:hover {
@@ -86,6 +88,11 @@
 
         .dropdown-divider {
             border-top-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        /* Dropdown açıldığında göster */
+        .dropdown-menu.show {
+            display: block !important;
         }
 
         /* Footer Stilleri */
