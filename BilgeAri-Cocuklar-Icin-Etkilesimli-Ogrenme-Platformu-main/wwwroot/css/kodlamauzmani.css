@@ -40,6 +40,81 @@
         body[data-theme="light"] #light-mode-btn { display: none; }
         body[data-theme="dark"] #dark-mode-btn { display: none; }
 
+        /* Navbar Stilleri */
+        header {
+            background: #b2d8f9;
+            color: #0e6e5f;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            background-color: #b2d8f9 !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 20px;
+        }
+
+        .navbar-brand {
+            color: #0e6e5f !important;
+            font-weight: 700 !important;
+            font-family: 'Balsamiq Sans', cursive !important;
+            font-size: 1.5rem !important;
+        }
+
+        .navbar-brand:hover {
+            color: #FFC107 !important;
+        }
+
+        .navbar .nav-link {
+            color: #0e6e5f !important;
+            font-weight: 700 !important;
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+            padding: 8px 15px !important;
+        }
+
+        .navbar .nav-link:hover {
+            color: #FFC107 !important;
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+        }
+
+        .navbar .nav-link.active {
+            color: #FFC107 !important;
+        }
+
+        .navbar-toggler {
+            border-color: #0e6e5f !important;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230e6e5f' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        .dropdown-menu {
+            background-color: #0e6e5f !important;
+            border: none !important;
+        }
+
+        .dropdown-item {
+            color: white !important;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #FFC107 !important;
+        }
+
+        .dropdown-divider {
+            border-top-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
         /* Arı peteği animasyonu: Deseni yavaşça hareket ettir */
         @keyframes moveHoneyComb {
             0% { background-position: 0% 0%; }
