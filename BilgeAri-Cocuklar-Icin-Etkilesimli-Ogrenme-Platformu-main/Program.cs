@@ -42,6 +42,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Session middleware
+app.UseSession();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
