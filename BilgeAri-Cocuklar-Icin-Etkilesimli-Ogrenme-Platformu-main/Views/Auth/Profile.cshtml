@@ -1,0 +1,279 @@
+@model BilgeAriMVC.Models.User
+@{
+    ViewData["Title"] = "Profilim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/anasayfa.css" asp-append-version="true" />
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #FFC107;
+        }
+        .profile-header h2 {
+            color: #0e6e5f;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #0e6e5f;
+            margin-bottom: 8px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #b2d8f9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #FFC107;
+        }
+        .btn-primary {
+            background: #FFC107;
+            color: #0e6e5f;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background: #ffa000;
+        }
+        .btn-danger {
+            background: #f44336;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-left: 10px;
+        }
+        .btn-danger:hover {
+            background: #d32f2f;
+        }
+        .message {
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+        }
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+    </style>
+}
+
+<div class="profile-container">
+    <div class="profile-header">
+        <h2>👤 Profilim</h2>
+        <p>Hesap bilgilerini buradan yönetebilirsin</p>
+    </div>
+
+    <div class="info-box">
+        <p><strong>Kayıt Tarihi:</strong> @Model.CreatedAt.ToString("dd MMMM yyyy HH:mm")</p>
+        @if (Model.UpdatedAt.HasValue)
+        {
+            <p><strong>Son Güncelleme:</strong> @Model.UpdatedAt.Value.ToString("dd MMMM yyyy HH:mm")</p>
+        }
+    </div>
+
+    <div id="updateMessage" class="message"></div>
+
+    <!-- Profil Güncelleme Formu -->
+    <form id="profileForm">
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="userId" value="@Model.Id" />
+
+        <div class="form-group">
+            <label>Ad Soyad</label>
+            <input type="text" id="name" value="@Model.Name" required>
+        </div>
+
+        <div class="form-group">
+            <label>E-posta</label>
+            <input type="email" id="email" value="@Model.Email" required>
+        </div>
+
+        <button type="submit" class="btn-primary">💾 Güncelle</button>
+    </form>
+
+    <hr style="margin: 30px 0;">
+
+    <!-- Şifre Güncelleme -->
+    <h3 style="color: #0e6e5f; margin-bottom: 20px;">🔒 Şifre Değiştir</h3>
+    <div id="passwordMessage" class="message"></div>
+    
+    <form id="passwordForm">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label>Mevcut Şifre</label>
+            <input type="password" id="currentPassword" required>
+        </div>
+
+        <div class="form-group">
+            <label>Yeni Şifre</label>
+            <input type="password" id="newPassword" required>
+        </div>
+
+        <button type="submit" class="btn-primary">🔐 Şifreyi Güncelle</button>
+    </form>
+
+    <hr style="margin: 30px 0;">
+
+    <!-- Hesap Silme -->
+    <div style="text-align: center; padding: 20px; background: #fff3cd; border-radius: 8px;">
+        <h4 style="color: #856404; margin-bottom: 10px;">⚠️ Tehlikeli Bölge</h4>
+        <p style="color: #856404; margin-bottom: 15px;">Hesabını kalıcı olarak silmek istersen:</p>
+        <button onclick="deleteAccount()" class="btn-danger">🗑️ Hesabı Sil</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Profil Güncelleme
+        document.getElementById('profileForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const messageEl = document.getElementById('updateMessage');
+            const userId = document.getElementById('userId').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            const formData = new FormData();
+            formData.append('id', userId);
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('__RequestVerificationToken', document.querySelector('input[name="__RequestVerificationToken"]').value);
+            
+            try {
+                const response = await fetch('@Url.Action("UpdateUser", "Auth")', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                messageEl.textContent = result.message;
+                messageEl.className = result.success ? 'message success' : 'message error';
+                messageEl.style.display = 'block';
+                
+                setTimeout(() => {
+                    messageEl.style.display = 'none';
+                }, 3000);
+            } catch (error) {
+                messageEl.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                messageEl.className = 'message error';
+                messageEl.style.display = 'block';
+            }
+        });
+
+        // Şifre Güncelleme
+        document.getElementById('passwordForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const messageEl = document.getElementById('passwordMessage');
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            
+            const formData = new FormData();
+            formData.append('currentPassword', currentPassword);
+            formData.append('newPassword', newPassword);
+            formData.append('__RequestVerificationToken', document.querySelector('input[name="__RequestVerificationToken"]').value);
+            
+            try {
+                const response = await fetch('@Url.Action("UpdatePassword", "Auth")', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                messageEl.textContent = result.message;
+                messageEl.className = result.success ? 'message success' : 'message error';
+                messageEl.style.display = 'block';
+                
+                if (result.success) {
+                    document.getElementById('currentPassword').value = '';
+                    document.getElementById('newPassword').value = '';
+                }
+                
+                setTimeout(() => {
+                    messageEl.style.display = 'none';
+                }, 3000);
+            } catch (error) {
+                messageEl.textContent = 'Bir hata oluştu. Lütfen tekrar deneyin.';
+                messageEl.className = 'message error';
+                messageEl.style.display = 'block';
+            }
+        });
+
+        // Hesap Silme
+        async function deleteAccount() {
+            if (!confirm('Hesabını kalıcı olarak silmek istediğinden emin misin? Bu işlem geri alınamaz!')) {
+                return;
+            }
+            
+            const userId = document.getElementById('userId').value;
+            const formData = new FormData();
+            formData.append('id', userId);
+            formData.append('__RequestVerificationToken', document.querySelector('input[name="__RequestVerificationToken"]').value);
+            
+            try {
+                const response = await fetch('@Url.Action("DeleteUser", "Auth")', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert(result.message);
+                    window.location.href = '@Url.Action("Login", "Auth")';
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+            }
+        }
+    </script>
+}
