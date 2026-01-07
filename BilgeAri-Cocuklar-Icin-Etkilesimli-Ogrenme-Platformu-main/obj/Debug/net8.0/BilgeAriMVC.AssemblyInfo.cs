@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BilgeAriMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a733c24af2fdfbbc603861c0b0d5d7ed0da5d06")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b69a156f6cfc0fbe829a85e374c69a7432b2e2d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("BilgeAriMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BilgeAriMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

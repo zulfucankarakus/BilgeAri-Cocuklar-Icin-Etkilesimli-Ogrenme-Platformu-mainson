@@ -69,7 +69,6 @@ C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mains
 /app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/obj/Debug/net8.0/BilgeAriMVC.MvcApplicationPartsAssemblyInfo.cache
 /app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/obj/Debug/net8.0/BilgeAriMVC.RazorAssemblyInfo.cache
 /app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/obj/Debug/net8.0/BilgeAriMVC.RazorAssemblyInfo.cs
-/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/obj/Debug/net8.0/BilgeAriMVC.sourcelink.json
 /app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/bin/Debug/net8.0/appsettings.Development.json
 /app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/bin/Debug/net8.0/appsettings.json
 /app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/bin/Debug/net8.0/BilgeAriMVC.staticwebassets.runtime.json
