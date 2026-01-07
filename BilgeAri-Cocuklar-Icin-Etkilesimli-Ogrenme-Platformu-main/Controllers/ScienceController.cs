@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using BilimProjesi.Models;
+using BilgeAriMVC.Models;
 
-namespace BilimProjesi.Controllers
+namespace BilgeAriMVC.Controllers
 {
     public class ScienceController : Controller
     {
