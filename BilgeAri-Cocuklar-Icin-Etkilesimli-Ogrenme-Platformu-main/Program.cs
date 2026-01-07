@@ -1,5 +1,6 @@
 using BilgeAriMVC.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
 
 Console.WriteLine($"Database konumu: {dbPath}");
+
+// Data Protection - Platform bağımsız yapılandırma
+var dataProtectionPath = Path.Combine(AppContext.BaseDirectory, "DataProtection-Keys");
+Directory.CreateDirectory(dataProtectionPath); // Klasörü oluştur
+
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(dataProtectionPath))
+    .SetApplicationName("BilgeAriMVC")
+    .SetDefaultKeyLifetime(TimeSpan.FromDays(90));
+
+Console.WriteLine($"Data Protection Keys konumu: {dataProtectionPath}");
 
 // Session servisi
 builder.Services.AddDistributedMemoryCache();
