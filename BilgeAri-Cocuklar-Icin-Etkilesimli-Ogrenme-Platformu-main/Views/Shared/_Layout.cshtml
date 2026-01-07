@@ -325,6 +325,25 @@
 
                 <p>Telefon: +90 555 123 45 67</p>
 
+                <!-- İletişim Formu -->
+                <div class="footer-contact-form mt-3" style="max-width: 400px;">
+                    <h4 style="font-size: 1.1rem; color: #0e6e5f; margin-bottom: 10px;">📧 Hızlı Mesaj Gönder</h4>
+                    <form action="/Iletisim/MesajGonder" method="post" id="footerContactForm">
+                        <div class="mb-2">
+                            <input type="text" name="ad" class="form-control form-control-sm" placeholder="Adınız" required style="background-color: rgba(255,255,255,0.9);" />
+                        </div>
+                        <div class="mb-2">
+                            <input type="email" name="eposta" class="form-control form-control-sm" placeholder="E-posta" required style="background-color: rgba(255,255,255,0.9);" />
+                        </div>
+                        <div class="mb-2">
+                            <textarea name="mesaj" class="form-control form-control-sm" rows="3" placeholder="Mesajınız..." required style="background-color: rgba(255,255,255,0.9); resize: none;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-sm w-100 text-white fw-bold">
+                            <i class="fas fa-paper-plane"></i> Gönder
+                        </button>
+                    </form>
+                </div>
+
             </div>
 
 
