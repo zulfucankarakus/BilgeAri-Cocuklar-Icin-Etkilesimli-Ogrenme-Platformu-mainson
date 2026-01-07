@@ -792,6 +792,7 @@
             border: 2px solid #ffecb3;
             border-radius: 15px; 
             margin-top: 20px;
+            z-index: 1; /* Diğer elementlerden ayır */
         }
         
         /* Tıklanabilir nesneler (emoji'ler) */
@@ -800,11 +801,13 @@
             font-size: 3rem; 
             cursor: pointer;
             transition: transform 0.2s ease;
+            z-index: 10; /* Tooltip'in altında */
         }
         
         /* Nesne hover efekti: Büyür */
         .clickable-item:hover { 
-            transform: scale(1.3); 
+            transform: scale(1.3);
+            z-index: 100; /* Hover'da en üstte */
         }
         
         /* Tooltip (bilgi balonu): Nesne üzerine gelindiğinde göster */
@@ -816,21 +819,47 @@
             transform: translateX(-50%);
             background: #333;
             color: white; 
-            padding: 8px 12px; 
-            border-radius: 8px;
-            font-size: 0.9rem; 
-            width: 150px; 
+            padding: 10px 14px; 
+            border-radius: 10px;
+            font-size: 0.95rem; 
+            width: 180px; 
             text-align: center;
             opacity: 0; /* Başlangıçta görünmez */
             visibility: hidden; 
-            transition: opacity 0.2s;
+            transition: opacity 0.3s ease, transform 0.3s ease;
             pointer-events: none; /* Tıklanamaz */
+            z-index: 1000; /* En üstte görünsün */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            white-space: normal;
+            line-height: 1.4;
+        }
+
+        /* Tooltip ok işareti */
+        .clickable-item::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            z-index: 999;
         }
         
-        /* Hover'da tooltip görünür yap */
+        /* Hover'da tooltip ve ok görünür yap */
         .clickable-item:hover::after { 
             opacity: 1; 
-            visibility: visible; 
+            visibility: visible;
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        .clickable-item:hover::before {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* ===== ANIMASYONLAR ===== */
