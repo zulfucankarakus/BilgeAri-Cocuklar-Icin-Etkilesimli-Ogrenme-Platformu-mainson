@@ -4,7 +4,7 @@
             margin: 0;
             padding: 0;
             
-            /* Ana sarı renk (bal rengi) */
+            /* Ana sarı renk (bal rengi) - Daha canlı */
             background-color: #ffe082;
             
             /* Arı peteği efekti: Radyal desenlerle petek görünümü oluştur */
@@ -34,6 +34,42 @@
             
             /* Tema değişiminde yumuşak geçiş */
             transition: background-color 0.3s ease;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Parlayan yıldız partikülleri */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent),
+                radial-gradient(1px 1px at 33% 80%, white, transparent);
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            animation: sparkle 8s ease-in-out infinite;
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        @@keyframes sparkle {
+            0%, 100% { 
+                background-position: 0% 0%; 
+                opacity: 0.3;
+            }
+            50% { 
+                background-position: 100% 100%; 
+                opacity: 0.6;
+            }
         }
 
         /* Tema butonlarını gizleme: Aktif tema butonunu gizle */
