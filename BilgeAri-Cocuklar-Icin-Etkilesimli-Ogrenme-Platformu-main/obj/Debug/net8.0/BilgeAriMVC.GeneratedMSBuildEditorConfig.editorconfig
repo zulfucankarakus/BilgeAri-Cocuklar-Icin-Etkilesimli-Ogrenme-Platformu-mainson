@@ -9,63 +9,95 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BilgeAriMVC
 build_property.RootNamespace = BilgeAriMVC
-build_property.ProjectDir = C:\Users\Ecem\Desktop\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main\
+build_property.ProjectDir = /app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Ecem\Desktop\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main
+build_property.MSBuildProjectDirectory = /app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/dogadedektifleri.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxkb2dhZGVkZWt0aWZsZXJpLmNzaHRtbA==
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/dogadedektifleri.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9kb2dhZGVkZWt0aWZsZXJpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/forgot.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxmb3Jnb3QuY3NodG1s
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/forgot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9mb3Jnb3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxsb2dpbi5jc2h0bWw=
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9sb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/signup.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxzaWdudXAuY3NodG1s
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9Qcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/felsefibilgin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxmZWxzZWZpYmlsZ2luLmNzaHRtbA==
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Auth/signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9zaWdudXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/kodlamauzmani.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxrb2RsYW1hdXptYW5pLmNzaHRtbA==
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/bilimbahcesi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9iaWxpbWJhaGNlc2kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/dogadedektifleri.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9kb2dhZGVkZWt0aWZsZXJpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/felsefibilgin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9mZWxzZWZpYmlsZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/ingilizcedehasi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9pbmdpbGl6Y2VkZWhhc2kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/kodlamauzmani.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9rb2RsYW1hdXptYW5pLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Ecem/Desktop/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-55gg7zfxl7
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Iletisim/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSWxldGlzaW0vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Science/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NpZW5jZS9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Science/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NpZW5jZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-kpx0m38bfq
