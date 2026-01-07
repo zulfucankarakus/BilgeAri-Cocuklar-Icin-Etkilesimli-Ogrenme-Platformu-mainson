@@ -370,75 +370,188 @@
         /* ===== YAZILIM DİLLERİ GALERİSİ ===== */
         
         .languages-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap; /* Alt satıra geç */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
             margin-top: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
         }
         
         /* Her bir dil logosu kartı */
         .lang-logo {
-            width: 160px;
-            height: 160px;
-            border-radius: 25px;
+            aspect-ratio: 1;
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 15px;
+            padding: 25px;
             text-align: center;
             font-weight: bold;
             color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 5px solid transparent; /* Başlangıçta görünmez kenarlık */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 4px solid transparent;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Parıltı efekti için arka plan gradient */
+        .lang-logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .lang-logo:hover::before {
+            left: 100%;
         }
         
         /* Logo hover efekti */
         .lang-logo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border-color: rgba(255, 255, 255, 0.3);
         }
         
         /* Logo başlığı (dil adı) */
         .logo-title {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
         }
         
         /* Logo açıklaması */
         .logo-desc {
-            font-size: 0.85rem;
-            font-weight: normal;
-            opacity: 0.9;
-            line-height: 1.3;
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0;
+            line-height: 1.4;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        /* Her bir dilin rengi */
-        .lang-logo.python { background-color: #306998; } /* Python: Mavi */
-        .lang-logo.js { background-color: #f7df1e; } /* JavaScript: Sarı */
-        .lang-logo.csharp { background-color: #68217a; } /* C#: Mor */
-        .lang-logo.java { background-color: #f89820; } /* Java: Turuncu */
-        .lang-logo.cpp { background-color: #00599C; } /* C++: Koyu Mavi */
+        .lang-logo:hover .logo-desc {
+            opacity: 1;
+            max-height: 100px;
+            margin-top: 10px;
+        }
 
-        /* JavaScript logosu için özel renk (sarı arka planda koyu metin) */
-        .lang-logo.js .logo-title { color: #333; }
-        .lang-logo.js .logo-desc { color: #555; opacity: 1; }
+        /* Her bir dilin rengi - Modern gradientler */
+        .lang-logo.python { 
+            background: linear-gradient(135deg, #306998 0%, #4B8BBE 100%);
+        }
         
-        /* Seçili dil: Turuncu kenarlık */
+        .lang-logo.js { 
+            background: linear-gradient(135deg, #f7df1e 0%, #f0db4f 100%);
+        }
+        
+        .lang-logo.csharp { 
+            background: linear-gradient(135deg, #68217a 0%, #9b59b6 100%);
+        }
+        
+        .lang-logo.java { 
+            background: linear-gradient(135deg, #f89820 0%, #FF6B35 100%);
+        }
+        
+        .lang-logo.cpp { 
+            background: linear-gradient(135deg, #00599C 0%, #0088CC 100%);
+        }
+
+        /* JavaScript logosu için özel renk */
+        .lang-logo.js .logo-title { 
+            color: #333;
+            font-weight: 900;
+        }
+        
+        .lang-logo.js .logo-desc { 
+            color: #222; 
+            opacity: 0;
+            font-weight: 700;
+        }
+
+        .lang-logo.js:hover .logo-desc {
+            opacity: 1;
+        }
+        
+        /* Seçili dil: Güçlü vurgu */
         .lang-logo.active {
-            border-color: #ff8c00;
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border-color: #FFC107;
+            transform: translateY(-10px) scale(1.08);
+            box-shadow: 0 20px 40px rgba(255, 193, 7, 0.4);
         }
         
-        /* Seçili olmayan diller: Soluk */
+        /* Seçili olmayan diller: Hafif soluk */
         .lang-logo.inactive {
-            opacity: 0.5;
+            opacity: 0.6;
             transform: scale(0.95);
+            filter: grayscale(30%);
+        }
+
+        /* İkon efekti ekleme */
+        .lang-logo .logo-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: currentColor;
+            margin: 8px auto 0;
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        /* Responsive düzenlemeler */
+        @media (max-width: 768px) {
+            .languages-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .lang-logo {
+                padding: 20px;
+            }
+
+            .logo-title {
+                font-size: 2rem;
+            }
+
+            .logo-desc {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .languages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .logo-title {
+                font-size: 1.8rem;
+            }
         }
 
         /* ===== İNTERAKTİF ODA STİLLERİ ===== */
