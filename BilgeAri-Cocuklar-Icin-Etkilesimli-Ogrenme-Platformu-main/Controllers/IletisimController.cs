@@ -14,9 +14,27 @@ namespace BilgeAriMVC.Controllers
         [HttpPost]
         public IActionResult MesajGonder(string ad, string eposta, string mesaj)
         {
-            // Burada veriyi aldık, şimdilik sadece ekrana geri basalım
-            ViewBag.Sonuc = $"Teşekkürler {ad}! Mesajın elimize ulaştı. En kısa sürede {eposta} adresine döneceğiz.";
+            // Validation
+            if (string.IsNullOrWhiteSpace(ad) || string.IsNullOrWhiteSpace(eposta) || string.IsNullOrWhiteSpace(mesaj))
+            {
+                if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                {
+                    return Json(new { success = false, message = "Lütfen tüm alanları doldurun!" });
+                }
+                ViewBag.Sonuc = "Lütfen tüm alanları doldurun!";
+                return View("Index");
+            }
 
+            // Burada veriyi aldık, veritabanına kaydedilebilir veya email gönderilebilir
+            var mesajMetni = $"Teşekkürler {ad}! Mesajınız başarıyla alındı. En kısa sürede {eposta} adresine dönüş yapacağız.";
+
+            // AJAX isteği mi kontrolü
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return Json(new { success = true, message = mesajMetni });
+            }
+
+            ViewBag.Sonuc = mesajMetni;
             return View("Index");
         }
     }
