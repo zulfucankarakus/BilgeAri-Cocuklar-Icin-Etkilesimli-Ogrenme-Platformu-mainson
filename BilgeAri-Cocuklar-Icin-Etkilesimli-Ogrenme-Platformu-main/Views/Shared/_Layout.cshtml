@@ -449,7 +449,80 @@
                     console.error('Dropdown başlatılamadı:', e);
                 }
             }
+
+            // Footer Contact Form AJAX Gönderimi
+            var footerForm = document.getElementById('footerContactForm');
+            if (footerForm) {
+                footerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    var formData = new FormData(this);
+                    var submitBtn = this.querySelector('button[type="submit"]');
+                    var originalBtnText = submitBtn.innerHTML;
+                    
+                    // Button'u disable et ve loading göster
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Gönderiliyor...';
+                    
+                    fetch('/Iletisim/MesajGonder', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Success mesajı göster
+                            showFooterNotification(data.message, 'success');
+                            // Formu temizle
+                            footerForm.reset();
+                        } else {
+                            showFooterNotification(data.message, 'danger');
+                        }
+                    })
+                    .catch(error => {
+                        showFooterNotification('Bir hata oluştu. Lütfen tekrar deneyin.', 'danger');
+                        console.error('Error:', error);
+                    })
+                    .finally(() => {
+                        // Button'u normale döndür
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    });
+                });
+            }
         });
+
+        // Footer notification gösterme fonksiyonu
+        function showFooterNotification(message, type) {
+            // Varolan bildirimleri temizle
+            var existingNotification = document.getElementById('footerNotification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Yeni bildirim oluştur
+            var notification = document.createElement('div');
+            notification.id = 'footerNotification';
+            notification.className = 'alert alert-' + type + ' alert-dismissible fade show';
+            notification.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 99999; min-width: 300px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // 5 saniye sonra otomatik kapat
+            setTimeout(function() {
+                if (notification && notification.parentNode) {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+        }
     </script>
     }
     
