@@ -4,26 +4,266 @@
 }
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/anasayfa.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/bilim.css" asp-append-version="true" />
+    <style>
+        .garden-hero {
+            position: relative;
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 50%, #CDDC39 100%);
+            padding: 100px 20px;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .garden-hero h1 {
+            font-size: 4rem;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+            animation: floatTitle 3s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .flower-animation {
+            position: absolute;
+            font-size: 3rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .flower-1 {
+            top: 20px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .flower-2 {
+            top: 60px;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .flower-3 {
+            bottom: 30px;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .flower-4 {
+            bottom: 50px;
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+    </style>
 }
 
-<section class="hero">
-    <h2>🧪 Bilim Bahçesi</h2>
-    <p>Bilimin büyülü dünyasına hoş geldin!</p>
+<div class="bee-guide">
+    <img src="~/images/girismaskot.png" alt="Bilge Arı" class="bee-mascot" onclick="toggleSpeech()">
+    <div class="speech-bubble" id="speechBubble">
+        <p class="speech-text" id="speechText">Merhaba minik bahçıvan! Ben Bilge Arı! 🐝 Seninle harika bitkiler
+            keşfedeceğiz!</p>
+    </div>
+</div>
+
+<section class="garden-hero">
+    <div class="flower-animation flower-1">🌻</div>
+    <div class="flower-animation flower-2">🌹</div>
+    <div class="flower-animation flower-3">🌷</div>
+    <div class="flower-animation flower-4">🌺</div>
+    
+    <div class="container">
+        <h1>🌱 Bilim Bahçesi</h1>
+        <p>Bitkilerin büyülü dünyasına hoş geldin!</p>
+        <p>🌟 Hadi birlikte doğayı keşfedelim! 🌟</p>
+    </div>
+</section>
+
+<section class="topics-section" id="topics-section">
+    <div class="container">
+        <h2>Hangi Bitkiyi Keşfetmek İstersin?</h2>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="topic-card" data-topic="cicekler" onclick="openCardViewerAndScroll('cicekler')">
+                    <span class="topic-icon">🌸</span>
+                    <h3 class="topic-title">Renkli Çiçekler</h3>
+                    <p class="topic-description">
+                        Çiçeklerin muhteşem renkleri, kokula ve arılarla dostluğunu keşfet!
+                    </p>
+                    <a href="javascript:void(0)" class="start-learning-btn">Öğrenmeye Başla! 🌺</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="topic-card" data-topic="agaclar" onclick="openCardViewerAndScroll('agaclar')">
+                    <span class="topic-icon">🌳</span>
+                    <h3 class="topic-title">Dev Ağaçlar</h3>
+                    <p class="topic-description">
+                        Ağaçların nasıl büyüdüğünü, yüzlerce yıl yaşadığını ve bize neler verdiğini öğren!
+                    </p>
+                    <a href="javascript:void(0)" class="start-learning-btn">Keşfet! 🌲</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="topic-card" data-topic="meyveler" onclick="openCardViewerAndScroll('meyveler')">
+                    <span class="topic-icon">🍎</span>
+                    <h3 class="topic-title">Lezzetli Meyveler</h3>
+                    <p class="topic-description">
+                        Meyvelerin nasıl oluştuğunu, tohumların sırlarını ve vitamin dolu dünyalarını gör!
+                    </p>
+                    <a href="javascript:void(0)" class="start-learning-btn">Tadına Bak! 🍓</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="topic-card" data-topic="sebzeler" onclick="openCardViewerAndScroll('sebzeler')">
+                    <span class="topic-icon">🥕</span>
+                    <h3 class="topic-title">Sağlıklı Sebzeler</h3>
+                    <p class="topic-description">
+                        Yeraltında ve yerüstünde büyüyen sebzelerin güçlü özelliklerini keşfet!
+                    </p>
+                    <a href="javascript:void(0)" class="start-learning-btn">Sebze Dünyası! 🥦</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="topic-card" data-topic="ormandostlari" onclick="openCardViewerAndScroll('ormandostlari')">
+                    <span class="topic-icon">🍄</span>
+                    <h3 class="topic-title">Orman Dostları</h3>
+                    <p class="topic-description">
+                        Mantarlar, yosunlar ve küçük bitkilerin ormanı nasıl bir yer yaptığını öğren!
+                    </p>
+                    <a href="javascript:void(0)" class="start-learning-btn">Ormana Gel! 🌿</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="topic-card" data-topic="tohumlar" onclick="openCardViewerAndScroll('tohumlar')">
+                    <span class="topic-icon">🌾</span>
+                    <h3 class="topic-title">Sihirli Tohumlar</h3>
+                    <p class="topic-description">
+                        Minik tohumların nasıl dev ağaçlara dönüştüğünü, çimlenme sırlarını keşfet!
+                    </p>
+                    <a href="javascript:void(0)" class="start-learning-btn">Tohum Sırları! 🌱</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <div class="container">
-    <main role="main" style="padding: 40px 20px;">
-        <div class="content-section">
-            <h2>Yakında Burada!</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #5D4037;">
-                Bilim Bahçesi sayfamız şu anda hazırlanıyor. Çok yakında heyecan verici bilim deneyleri ve 
-                etkileşimli aktivitelerle karşınızda olacağız! 🔬✨
-            </p>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a asp-controller="Home" asp-action="Index" class="start-btn">Anasayfaya Dön</a>
+    <div style="background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 100%); border: 3px dashed var(--dark-blue); border-radius: 20px; padding: 30px; margin: 40px 0; text-align: center;">
+        <h3 style="color: var(--dark-blue); font-size: 2rem; margin-bottom: 15px;">💡 Bilge Arı'dan İpucu!</h3>
+        <p style="font-size: 1.1rem; color: #5D4037; line-height: 1.6;">
+            Bitkiler bizim için çok önemlidir! Onlar havadaki karbondioksiti temizler ve bize oksijen verir. 
+            Ayrıca yiyeceklerimizin çoğu bitkilerden gelir. Bitkilere iyi bakmak, dünyamızı korumak demektir! 🌍💚
+        </p>
+    </div>
+</div>
+
+<section class="card-viewer-section" id="cardViewerSection">
+    <div class="container">
+        <div class="card-viewer-container" id="cardViewerContainer">
+            <button class="close-viewer" onclick="closeCardViewer()">×</button>
+
+            <div class="card-viewer-content-wrapper">
+                <div class="learning-card" id="learningCard"></div>
+            </div>
+
+            <div class="card-navigation">
+                <button class="nav-btn" id="prevBtn" onclick="previousCard()">← Önceki</button>
+                <span class="card-counter" id="cardCounter">1 / 7</span>
+                <button class="nav-btn" id="nextBtn" onclick="nextCard()">Sonraki →</button>
             </div>
         </div>
-    </main>
-</div>
+    </div>
+</section>
+
+<section class="mini-games-section" id="miniGamesSection">
+    <div class="container">
+        <h2 style="color: var(--dark-blue); font-size: 3rem; text-align: center; margin-bottom: 50px;">🎮 Bahçe Oyunları</h2>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="game-card" onclick="startMatchingGameAndScroll()">
+                    <div style="font-size: 5rem; margin-bottom: 20px;">🌼</div>
+                    <h3 style="color: var(--dark-blue); font-size: 2rem; margin-bottom: 15px;">Çiçek Eşleştirme</h3>
+                    <p style="font-size: 1.1rem; color: #5D4037;">Aynı çiçekleri bul ve eşleştir! Hafızanı test et!</p>
+                    <button class="start-learning-btn" style="margin-top: 15px;">Oyuna Başla! 🎲</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="matching-game" id="matchingGame">
+            <div class="game-header">
+                <h3>🌼 Çiçek Eşleştirme Oyunu</h3>
+                <span style="font-size: 1.2rem; font-weight: 700; color: var(--dark-blue);">Hamle: <span
+                        id="moveCount">0</span></span>
+            </div>
+            <div class="game-grid" id="gameGrid">
+            </div>
+            <div class="game-controls">
+                <button class="nav-btn" onclick="resetGame()">Yeniden Başla 🔄</button>
+                <button class="nav-btn" onclick="closeGame()"
+                    style="background: #ff4444; border-color: #cc0000; box-shadow: 0 4px 0 #cc0000;">Kapat ❌</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="quiz-section" id="quizSection">
+    <div class="container">
+        <h2>🎯 Bitki Bilgini Test Et!</h2>
+
+        <div class="quiz-start-card" id="quizStartCard">
+            <div class="quiz-start-icon">🌿</div>
+            <h3 style="color: var(--dark-blue); font-size: 1.8rem; margin-bottom: 15px; line-height: 1.3;">Bilge Arı'nın
+                Bahçe Testi!</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px; color: #5D4037; line-height: 1.5;">
+                Bitkiler hakkında öğrendiklerini test etme zamanı! 10 harika soru seni bekliyor.<br>
+                Haydi, en yüksek puanı al! 🚀
+            </p>
+            <button class="quiz-start-btn" onclick="startBahceQuiz()">Hadi Başlayalım! 🎮</button>
+        </div>
+
+        <div class="quiz-card" id="quizCard">
+            <div class="quiz-progress">
+                <div class="quiz-progress-bar" id="quizProgressBar">0%</div>
+            </div>
+            <div class="quiz-question-number" id="questionNumber"
+                style="text-align: center; font-size: 0.9rem; margin-bottom: 10px; color: var(--dark-blue); font-weight: 700;">
+                Soru 1 / 10</div>
+            <div class="quiz-question" id="quizQuestion">
+            </div>
+            <div id="quizOptions">
+            </div>
+            <div class="quiz-explanation" id="quizExplanation">
+            </div>
+            <button class="quiz-next-btn" id="quizNextBtn" onclick="nextBahceQuestion()">Sonraki Soru →</button>
+        </div>
+
+        <div class="quiz-result-card" id="quizResultCard">
+            <div class="quiz-result-icon" id="resultIcon">
+            </div>
+            <h3 class="quiz-result-title" id="resultTitle">
+            </h3>
+            <p class="quiz-result-score" id="resultScore">
+            </p>
+            <p id="resultMessage" style="font-size: 1.1rem; color: #5D4037; margin-bottom: 20px; line-height: 1.5;">
+            </p>
+            <button class="quiz-restart-btn" onclick="restartBahceQuiz()">Tekrar Dene! 🔄</button>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/bilimbahcesi.js"></script>
+}
