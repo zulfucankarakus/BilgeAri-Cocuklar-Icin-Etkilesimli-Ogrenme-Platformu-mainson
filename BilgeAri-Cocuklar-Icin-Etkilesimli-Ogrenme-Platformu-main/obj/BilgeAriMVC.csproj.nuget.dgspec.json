@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ecem\\Desktop\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main\\BilgeAriMVC.csproj": {}
+    "/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/BilgeAriMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ecem\\Desktop\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main\\BilgeAriMVC.csproj": {
+    "/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/BilgeAriMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ecem\\Desktop\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main\\BilgeAriMVC.csproj",
+        "projectUniqueName": "/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/BilgeAriMVC.csproj",
         "projectName": "BilgeAriMVC",
-        "projectPath": "C:\\Users\\Ecem\\Desktop\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main\\BilgeAriMVC.csproj",
-        "packagesPath": "C:\\Users\\Ecem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ecem\\Desktop\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-mainson\\BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main\\obj\\",
+        "projectPath": "/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/BilgeAriMVC.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/app/BilgeAri-Cocuklar-Icin-Etkilesimli-Ogrenme-Platformu-main/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Ecem\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,6 +42,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.319/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
