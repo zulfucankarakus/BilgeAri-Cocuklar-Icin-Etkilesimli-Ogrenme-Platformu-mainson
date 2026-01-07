@@ -1,4 +1,4 @@
-namespace BilimProjesi.Models
+namespace BilgeAriMVC.Models
 {
     public class ExplorerNote
     {

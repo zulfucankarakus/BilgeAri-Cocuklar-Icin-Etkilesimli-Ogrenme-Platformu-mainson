@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace BilimProjesi.Models
+namespace BilgeAriMVC.Models
 {
     public class ScienceItem
     {
