@@ -1,158 +1,227 @@
 ﻿@{
     ViewData["Title"] = "Kodlama Uzmanı";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-@section Styles {
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bilge Arı</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="~/css/kodlamauzmani.css" asp-append-version="true" />
-    <style>
-        /* Kodlama uzmanı için özel body stilleri */
-        body {
-            /* Body stilleri artık site.css'den geliyor */
-        }
-        
-        /* Tema butonlarını gizleme */
-        body[data-theme="light"] #light-mode-btn { display: none; }
-        body[data-theme="dark"] #dark-mode-btn { display: none; }
-        
-        /* Karanlık tema */
-        body[data-theme="dark"] {
-            background-color: #1a1a2e;
-            background-image: 
-                radial-gradient(circle at 100% 150%, 
-                    #1a1a2e 24%, #16213e 25%, #16213e 27%, #1a1a2e 28%,
-                    #1a1a2e 34%, #16213e 35%, #16213e 37%, #1a1a2e 38%,
-                    #1a1a2e 44%, #16213e 45%, #16213e 47%, #1a1a2e 48%,
-                    #1a1a2e 54%, #16213e 55%, #16213e 57%, #1a1a2e 58%,
-                    #1a1a2e 64%, #16213e 65%, #16213e 67%, #1a1a2e 68%,
-                    #1a1a2e 74%, #16213e 75%, #16213e 77%, #1a1a2e 78%,
-                    #1a1a2e 84%, #16213e 85%, #16213e 87%, #1a1a2e 88%,
-                    #1a1a2e 94%, #16213e 95%, #16213e 97%, #1a1a2e 98%),
-                radial-gradient(circle at 0% 150%, 
-                    #1a1a2e 24%, #16213e 25%, #16213e 27%, #1a1a2e 28%,
-                    #1a1a2e 34%, #16213e 35%, #16213e 37%, #1a1a2e 38%,
-                    #1a1a2e 44%, #16213e 45%, #16213e 47%, #1a1a2e 48%,
-                    #1a1a2e 54%, #16213e 55%, #16213e 57%, #1a1a2e 58%,
-                    #1a1a2e 64%, #16213e 65%, #16213e 67%, #1a1a2e 68%,
-                    #1a1a2e 74%, #16213e 75%, #16213e 77%, #1a1a2e 78%,
-                    #1a1a2e 84%, #16213e 85%, #16213e 87%, #1a1a2e 88%,
-                    #1a1a2e 94%, #16213e 95%, #16213e 97%, #1a1a2e 98%) 
-                top left/100% 50% repeat-x;
-        }
-        
-        body[data-theme="dark"] .activity-card {
-            background: #2d3748;
-            color: #e2e8f0;
-        }
-        
-        body[data-theme="dark"] .activity-card h2 {
-            color: #ffa500;
-        }
-        
-        body[data-theme="dark"] .activity-card p {
-            color: #cbd5e0;
-        }
-        
-        body[data-theme="dark"] .mascot-container {
-            background: rgba(45, 55, 72, 0.9);
-            border-color: #ffa500;
-        }
-        
-        body[data-theme="dark"] .speech-bubble {
-            background: #1a202c;
-            color: #e2e8f0;
-        }
-        
-        body[data-theme="dark"] .speech-bubble::before {
-            border-color: transparent #1a202c transparent transparent;
-        }
-        
-        body[data-theme="dark"] .bug-step {
-            background: #2d3748;
-            border-color: #4a5568;
-            color: #e2e8f0;
-        }
-        
-        body[data-theme="dark"] .room-container {
-            background: #2d3748;
-            border-color: #4a5568;
-        }
-    </style>
-}
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <img src="~/images/navbariconlast.png" alt="Bilge Arı" width="40" height="40" class="d-inline-block align-text-top me-2">
+                <span class="fw-bold">Bilge Arı</span>
+            </a>
 
-<section id="yazilim-sayfasi">
-    <div class="software-container-v3">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bilgeAriNavbar" aria-controls="bilgeAriNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- ===== ARI KRALİÇE MASKOT ===== -->
-        <div class="mascot-container">
-            <svg class="bee-queen-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                <ellipse cx="50" cy="55" rx="35" ry="25" fill="#ffd700" />
-                <rect x="25" y="45" width="50" height="8" fill="black" />
-                <rect x="20" y="58" width="60" height="8" fill="black" />
-                <circle cx="50" cy="30" r="20" fill="#ffd700" />
-                <circle cx="40" cy="25" r="5" fill="black" />
-                <circle cx="60" cy="25" r="5" fill="black" />
-                <path d="M40 10 L30 0" stroke="black" stroke-width="3" />
-                <circle cx="30" cy="0" r="3" />
-                <path d="M60 10 L70 0" stroke="black" stroke-width="3" />
-                <circle cx="70" cy="0" r="3" />
-            </svg>
+            <div class="collapse navbar-collapse" id="bilgeAriNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#zaman">⏳ Zaman Yolculuğu</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="dogadedektifleri">🌳 Doğa Dedektifliği</a></li>
+                    <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Home" asp-action="kodlamauzmani">💻 Kodlama Uzmanı</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="felsefibilgin">🤔 Felsefi Bilgin</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="bilimbahcesi">🧪 Bilim Bahçesi</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="ingilizcedehasi">🗣 İngilizce Dehası</a></li>
+                </ul>
 
-            <div class="speech-bubble" id="kodo-bubble">
-                Vızzz! Ben Arı Kraliçe! 🐝 Yazılımın tatlı dünyasına hoş geldin!
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="hesabimDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hesabım
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hesabimDropdown">
+                            <li><a class="dropdown-item" href="#profil">Profilim</a></li>
+                            <li><a class="dropdown-item" href="#İlerlemelerim">İlerlemelerim</a></li>
+                            <li><a class="dropdown-item" href="#ayarlar">Ayarlar</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#cikis">Çıkış Yap</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </div>
+        </nav>
+    </header>
 
-        <!-- ===== ETKİNLİK 1: CANAVAR ===== -->
-        <div class="activity-card" data-kodo-text="Kodlar canavarı değiştirir!">
-            <h2>👾 Kod ile Canavar Yarat!</h2>
+    <section id="yazilim-sayfasi">
+        <div class="software-container-v3">
 
-            <div class="monster-display">
-                <svg id="monster" viewBox="0 0 100 100" width="150">
-                    <path id="monster-hat"
-                          d="M 40 25 Q 50 5 60 25 L 55 28 Q 50 15 45 28 Z" />
-                    <circle id="monster-body" cx="50" cy="60" r="40" />
-                    <circle id="monster-eye1" cx="35" cy="50" r="8" />
-                    <circle id="monster-eye2" cx="65" cy="50" r="8" />
-                    <path id="monster-mouth"
-                          d="M 30 75 Q 50 60 70 75"
-                          stroke="black" stroke-width="3" fill="none" />
+            <!-- ===== ARI KRALİÇE MASKOT ===== -->
+            <div class="mascot-container">
+                <svg class="bee-queen-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <ellipse cx="50" cy="55" rx="35" ry="25" fill="#ffd700" />
+                    <rect x="25" y="45" width="50" height="8" fill="black" />
+                    <rect x="20" y="58" width="60" height="8" fill="black" />
+                    <circle cx="50" cy="30" r="20" fill="#ffd700" />
+                    <circle cx="40" cy="25" r="5" fill="black" />
+                    <circle cx="60" cy="25" r="5" fill="black" />
+                    <path d="M40 10 L30 0" stroke="black" stroke-width="3" fill="none" />
+                    <circle cx="30" cy="0" r="3" fill="black" />
+                    <path d="M60 10 L70 0" stroke="black" stroke-width="3" fill="none" />
+                    <circle cx="70" cy="0" r="3" fill="black" />
+                    <path d="M65 30 Q 75 10 90 20 Q 80 40 65 30 Z" fill="rgba(255,255,255,0.7)" stroke="#ccc" stroke-width="1" />
+                    <path d="M35 30 Q 25 10 10 20 Q 20 40 35 30 Z" fill="rgba(255,255,255,0.7)" stroke="#ccc" stroke-width="1" />
                 </svg>
+
+                <div class="speech-bubble" id="kodo-bubble">
+                    Vızzz! Ben Arı Kraliçe! 🐝 Yazılımın tatlı dünyasını keşfetmeye hazır mısın? Öğrenmek için kartların üzerine fare getir!
+                </div>
             </div>
 
-            <div class="controls">
-                <button id="btn-color" class="control-btn">Rengini Değiştir</button>
-                <button id="btn-eyes" class="control-btn">Gözleri Büyüt</button>
-                <button id="btn-mouth" class="control-btn">Mutlu Yap</button>
-                <button id="btn-hat" class="control-btn">👑 Anten</button>
-                <button id="btn-reset" class="control-btn reset-btn">Sıfırla</button>
+            <!-- ===== ETKİNLİK 1: CANAVAR ===== -->
+            <div class="activity-card" data-kodo-text="Vızzz! Kod, bu canavarı nasıl değiştireceğimizi söyleyen talimatlardır. Deneyelim mi?">
+                <h2>👾 Kod ile Canavar Yarat!</h2>
+                <p>Butonlara tıkla ve kodun bu canavarı nasıl değiştirdiğini izle!</p>
+
+                <div class="monster-display">
+                    <svg id="monster" viewBox="0 0 100 100" width="150" height="150">
+                        <path id="monster-hat" d="M 40 25 Q 50 5 60 25 L 55 28 Q 50 15 45 28 Z" fill="#ffc107" />
+                        <circle id="monster-body" cx="50" cy="60" r="40" fill="#8bc34a" />
+                        <circle id="monster-eye1" cx="35" cy="50" r="8" fill="white" />
+                        <circle cx="35" cy="50" r="4" fill="black" />
+                        <circle id="monster-eye2" cx="65" cy="50" r="8" fill="white" />
+                        <circle cx="65" cy="50" r="4" fill="black" />
+                        <path id="monster-mouth" d="M 30 75 Q 50 60 70 75" stroke="black" stroke-width="3" fill="none" />
+                    </svg>
+                </div>
+
+                <div class="controls">
+                    <button id="btn-color" class="control-btn">Rengini Kırmızı Yap</button>
+                    <button id="btn-eyes" class="control-btn">Gözleri Büyüt</button>
+                    <button id="btn-mouth" class="control-btn">Mutlu Yap</button>
+                    <button id="btn-hat" class="control-btn">👑 Anten Ekle</button>
+                    <button id="btn-reset" class="control-btn reset-btn">Sıfırla</button>
+                </div>
             </div>
+
+            <!-- ===== ETKİNLİK 2: BUG HUNT ===== -->
+            <div class="activity-card" data-kodo-text="Vızzz! Bir algoritmadaki 'böceği' bulabilir misin? Çalışkan arılar gibi dikkatli ol!">
+                <h2>🐞 Hata (Bug) Avı: Okula Hazırlanma!</h2>
+                <p>Aşağıdaki 'okula hazırlanma' adımlarını incele. Sence mantıksal 'hata' olan adıma tıkla!</p>
+
+                <div class="bug-hunt-steps">
+                    <div class="bug-step" id="step1">
+                        <span class="step-icon">👟</span>
+                        <span class="step-text">1. Ayakkabılarını giy.</span>
+                    </div>
+                    <div class="bug-step" id="step2">
+                        <span class="step-icon">🧦</span>
+                        <span class="step-text">2. Çoraplarını giy.</span>
+                    </div>
+                    <div class="bug-step" id="step3">
+                        <span class="step-icon">🎒</span>
+                        <span class="step-text">3. Çantanı al.</span>
+                    </div>
+                </div>
+
+                <div id="bug-feedback" class="feedback-text"></div>
+                <button id="btn-fix-bug" class="control-btn">Adımları Düzelt!</button>
+            </div>
+
+            <!-- ===== ETKİNLİK 3: YAZILIM DİLLERİ GALERİSİ ===== -->
+            <div class="activity-card" id="language-gallery-card" data-kodo-text="Vızz! Birçok yazılım 'dili' var. Tıpkı bizim gibi, onların da farklı konuşma yolları var!">
+                <h2>🐝 Yazılım Dilleri Galerisi ☕</h2>
+                <p>Farklı dillerin ne işe yaradığını öğrenmek için logolarına tıkla!</p>
+
+                <div class="languages-grid">
+                    <div class="lang-logo python" id="logo-python" data-info="Vızz! Bu Python! 🐍 Öğrenmesi çok kolaydır. YouTube ve Instagram gibi yerlerde kullanılır!">
+                        <span class="logo-title">Python</span>
+                        <p class="logo-desc">Öğrenmesi kolay, oyun ve web sitelerinde kullanılır.</p>
+                    </div>
+
+                    <div class="lang-logo js" id="logo-js" data-info="Vızz! Bu JavaScript! 📜 Bu web sitesini interaktif yapan dil bu! Tüm butonlar onun sayesinde!">
+                        <span class="logo-title">JS</span>
+                        <p class="logo-desc">Web sitelerini canlandıran ve interaktif yapan dildir.</p>
+                    </div>
+
+                    <div class="lang-logo csharp" id="logo-csharp" data-info="Vızz! Bu C#! 🎮 Özellikle Unity ile 3D oyunlar yapmak için kullanılan çok güçlü bir dildir!">
+                        <span class="logo-title">C#</span>
+                        <p class="logo-desc">Oyun geliştirmek (Unity) ve programlar yapmak içindir.</p>
+                    </div>
+
+                    <div class="lang-logo java" id="logo-java" data-info="Vızz! Bu Java! ☕ Minecraft'ın orijinal oyunu bu dille yapıldı! Çok güçlü ve çok popülerdir.">
+                        <span class="logo-title">Java</span>
+                        <p class="logo-desc">Minecraft gibi büyük oyunları ve uygulamaları güçlendirir.</p>
+                    </div>
+
+                    <div class="lang-logo cpp" id="logo-cpp" data-info="Vızz! Bu C++! 🚀 En hızlı ve en güçlü dillerden biridir! Fortnite gibi büyük oyunlar bu dili kullanır.">
+                        <span class="logo-title">C++</span>
+                        <p class="logo-desc">En hızlı ve güçlü oyunları/programları yapmak içindir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ETKİNLİK 4: YAZILIM NEREDE SAKLANMIŞ? ===== -->
+            <div class="activity-card" data-kodo-text="Vızzz! Yazılım, çiçekler gibi her yerde! Etrafına bak ve nerede saklandığını gör!">
+                <h2>🏠 Yazılım Nerede Saklanıyor?</h2>
+                <p>Yazılım sadece bilgisayarlarda değildir! Günlük eşyaların üzerine gel ve keşfet!</p>
+
+                <div class="room-container">
+                    <div class="clickable-item" style="top: 50%; left: 20%;" data-info="Oyun oynamanı sağlayan şey yazılımdır!">💻</div>
+                    <div class="clickable-item" style="top: 10%; left: 50%;" data-info="Rengini değiştirebilen bu lamba yazılımla çalışır!">💡</div>
+                    <div class="clickable-item" style="top: 60%; left: 70%;" data-info="Video izlediğin tabletin içinde bir sürü kod var!">📱</div>
+                    <div class="clickable-item" style="top: 75%; left: 45%;" data-info="Bu robotun hareket etmesini sağlayan şey bir yazılımdır!">🤖</div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- ===== ETKİNLİK 2: BUG HUNT ===== -->
-        <div class="activity-card">
-            <h2>🐞 Hata Avı</h2>
-
-            <div class="bug-hunt-steps">
-                <div class="bug-step" id="step1">👟 Ayakkabı</div>
-                <div class="bug-step" id="step2">🧦 Çorap</div>
-                <div class="bug-step" id="step3">🎒 Çanta</div>
-            </div>
-
-            <div id="bug-feedback" class="feedback-text"></div>
-            <button id="btn-fix-bug" class="control-btn">Düzelt</button>
-        </div>
-
-        <!-- ===== TEMA BUTONLARI ===== -->
+        <!-- ===== TEMA DEĞİŞTİRME BUTONLARI ===== -->
         <div class="theme-toggle">
             <span id="dark-mode-btn">🌙</span>
             <span id="light-mode-btn">🌞</span>
         </div>
+    </section>
 
-    </div>
-</section>
+    <footer style="background: #b2d8f9; color: #0e6e5f; padding: 25px 20px 10px 20px; box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2); position: relative; z-index: 100;">
+        <div class="footer-content-wrapper" style="display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding-bottom: 20px;">
+            <div class="footer-column links-column" style="width: 30%; padding: 0 15px;">
+                <h3 style="color: #0e6e5f; font-size: 1.2rem; margin-bottom: 15px;">Hızlı Erişim</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#icerik" style="color: #0e6e5f; text-decoration: none; font-size: 0.95rem; line-height: 1.8;">Bilgi Kartları</a></li>
+                    <li><a href="#hakkimizda" style="color: #0e6e5f; text-decoration: none; font-size: 0.95rem; line-height: 1.8;">Hakkımızda</a></li>
+                    <li><a href="#sss" style="color: #0e6e5f; text-decoration: none; font-size: 0.95rem; line-height: 1.8;">Sıkça Sorulan Sorular</a></li>
+                </ul>
+            </div>
 
-@section Scripts {
+            <div class="footer-column contact-column" style="width: 30%; padding: 0 15px;">
+                <h3 style="color: #0e6e5f; font-size: 1.2rem; margin-bottom: 15px;">İletişim</h3>
+                <p style="color: #0e6e5f; font-size: 0.95rem; line-height: 1.8;">E-posta: <a href="mailto:info@bilgeari.com" style="color: #0e6e5f; text-decoration: none;">info@bilgeari.com</a></p>
+                <p style="color: #0e6e5f; font-size: 0.95rem; line-height: 1.8;">Telefon: +90 555 123 45 67</p>
+            </div>
+
+            <div class="footer-column social-column" style="width: 30%; padding: 0 15px;">
+                <h3 style="color: #0e6e5f; font-size: 1.2rem; margin-bottom: 15px;">Bizi Takip Edin</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" aria-label="Facebook" style="display: inline-block; width: 35px; height: 35px; line-height: 35px; background: #0e6e5f; color: white; text-align: center; border-radius: 50%; margin-right: 10px; text-decoration: none;"><span class="icon">F</span></a>
+                    <a href="https://www.x.com/" aria-label="Twitter/X" style="display: inline-block; width: 35px; height: 35px; line-height: 35px; background: #0e6e5f; color: white; text-align: center; border-radius: 50%; margin-right: 10px; text-decoration: none;"><span class="icon">X</span></a>
+                    <a href="https://www.instagram.com/" aria-label="Instagram" style="display: inline-block; width: 35px; height: 35px; line-height: 35px; background: #0e6e5f; color: white; text-align: center; border-radius: 50%; margin-right: 10px; text-decoration: none;"><span class="icon">I</span></a>
+                    <a href="https://www.youtube.com" aria-label="Youtube" style="display: inline-block; width: 35px; height: 35px; line-height: 35px; background: #0e6e5f; color: white; text-align: center; border-radius: 50%; margin-right: 10px; text-decoration: none;"><span class="icon">Y</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright" style="text-align: center; border-top: 1px solid rgba(14, 110, 95, 0.1); padding-top: 15px; margin-top: 15px;">
+            <p style="color: #0e6e5f; opacity: 0.7; font-size: 0.85rem;">&copy; 2025 Kâşif Vız Okulu. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/kodlamauzmani.js"></script>
-}
 
+</body>
+</html>

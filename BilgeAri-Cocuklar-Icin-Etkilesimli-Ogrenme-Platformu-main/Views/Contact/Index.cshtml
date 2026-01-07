@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Bize Ulaşın";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-3 overflow-hidden">
+                <div class="card-header bg-warning text-dark p-4 text-center">
+                    <h2 class="mb-0 fw-bold">🐝 Bize Ulaşın</h2>
+                    <p class="mb-0 mt-2">Soruların mı var? Bilge Arı sana yardım etmeye hazır!</p>
+                </div>
+                <div class="card-body p-4 p-md-5">
+
+                    @if (TempData["Message"] != null)
+                    {
+                            <div class="alert alert-success d-flex align-items-center mb-4" role="alert">
+                                <span class="fs-4 me-2">✅</span>
+                                <div>
+                                @TempData["Message"]
+                                </div>
+                            </div>
+                    }
+
+                    <form asp-action="Send" method="post">
+                        <div class="mb-4">
+                            <label for="name" class="form-label fw-bold">Adın Soyadın</label>
+                            <input type="text" class="form-control form-control-lg bg-light" id="name" name="name" placeholder="Senin adın ne minik kaşif?" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="form-label fw-bold">E-posta Adresin</label>
+                            <input type="email" class="form-control form-control-lg bg-light" id="email" name="email" placeholder="Sana nasıl ulaşabiliriz?" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="message" class="form-label fw-bold">Mesajın</label>
+                            <textarea class="form-control form-control-lg bg-light" id="message" name="message" rows="5" placeholder="Bilge Arı'ya ne söylemek istersin?" required></textarea>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-warning btn-lg text-dark fw-bold hover-scale">
+                                🚀 Mesajı Gönder
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer bg-light text-center p-3">
+                    <small class="text-muted">Bilim dolu günler dileriz!</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-scale {
+        transition: transform 0.2s;
+    }
+    .hover-scale:hover {
+        transform: scale(1.02);
+    }
+</style>

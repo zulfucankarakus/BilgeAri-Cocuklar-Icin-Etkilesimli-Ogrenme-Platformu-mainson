@@ -1,29 +1,89 @@
-@{
-    ViewData["Title"] = "İngilizce Dehası";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 @section Styles {
-    <link rel="stylesheet" href="~/css/anasayfa.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ingilizce.css" />
+}
+@{
+    ViewData["Title"] = "İngilizce Dehası - Bilge Arı";
+    Layout = "_Layout";
 }
 
-<section class="hero">
-    <h2>🗣 İngilizce Dehası</h2>
-    <p>İngilizce öğrenmenin eğlenceli yolunu keşfet!</p>
-</section>
+<div class="container" style="position: relative; z-index: 10; padding-top: 40px; padding-bottom: 60px;">
 
-<div class="container">
-    <main role="main" style="padding: 40px 20px;">
-        <div class="content-section">
-            <h2>Yakında Burada!</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #5D4037;">
-                İngilizce Dehası sayfamız şu anda hazırlanıyor. Çok yakında eğlenceli kelime oyunları ve 
-                İngilizce pratik aktiviteleriyle karşınızda olacağız! 🎮📚
-            </p>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a asp-controller="Home" asp-action="Index" class="start-btn">Anasayfaya Dön</a>
+    <!-- OYUN 1: Kelime-Resim Eşleştirme -->
+    <section class="game-section" id="game1">
+        <h2 class="game-title">🎨 Kelime-Resim Eşleştirme</h2>
+        <p class="game-subtitle">Kelimeleri doğru resimlerle eşleştir!</p>
+
+        <div class="matching-game" id="matchingGame"></div>
+
+        <div class="feedback" id="feedback1"></div>
+
+        <div class="game-controls">
+            <button class="reset-btn" onclick="resetGame1()">🔄 Yeniden Başla</button>
+        </div>
+    </section>
+
+    <!-- OYUN 2: Dinleme Oyunu -->
+    <section class="game-section" id="game2">
+        <h2 class="game-title">🎧 Dinleme Oyunu</h2>
+        <p class="game-subtitle">Sesi dinle ve doğru objeye tıkla!</p>
+
+        <div class="listening-game">
+            <div class="audio-instruction" id="audioInstruction">
+                Başlamak için ses butonuna tıkla! 🔊
+            </div>
+
+            <button class="play-sound-btn" onclick="playCurrentSound()">🔊</button>
+
+            <div class="listening-options" id="listeningOptions"></div>
+        </div>
+
+        <div class="feedback" id="feedback2"></div>
+
+        <div class="game-controls">
+            <button class="reset-btn" onclick="resetGame2()">🔄 Yeniden Başla</button>
+        </div>
+    </section>
+
+    <!-- OYUN 3: Renk Eşleştirme -->
+    <section class="game-section" id="game3">
+        <h2 class="game-title">🌈 Renk ve Kelime Eşleştirme</h2>
+        <p class="game-subtitle">Her renk için doğru kelimeyi seç!</p>
+
+        <div class="color-game" id="colorGame"></div>
+
+        <div class="feedback" id="feedback3"></div>
+
+        <div class="game-controls">
+            <button class="check-btn" onclick="checkColors()">✅ Kontrol Et</button>
+            <button class="reset-btn" onclick="resetGame3()">🔄 Yeniden Başla</button>
+        </div>
+    </section>
+
+    <!-- OYUN 4: Cümle Kurma -->
+    <section class="game-section" id="game4">
+        <h2 class="game-title">✏️ Basit Cümle Kurma</h2>
+        <p class="game-subtitle">Kelimeleri sürükleyerek doğru cümleyi oluştur!</p>
+
+        <div class="sentence-game">
+            <div class="sentence-instruction" id="sentenceInstruction"></div>
+
+            <div class="word-bank" id="wordBank"></div>
+
+            <div class="sentence-area" id="sentenceArea">
+                Kelimeleri buraya sürükle...
             </div>
         </div>
-    </main>
+
+        <div class="feedback" id="feedback4"></div>
+
+        <div class="game-controls">
+            <button class="check-btn" onclick="checkSentence()">✅ Kontrol Et</button>
+            <button class="reset-btn" onclick="resetGame4()">🔄 Yeniden Başla</button>
+        </div>
+    </section>
+
 </div>
+
+@section Scripts {
+    <script src="~/js/ingilizce.js"></script>
+}

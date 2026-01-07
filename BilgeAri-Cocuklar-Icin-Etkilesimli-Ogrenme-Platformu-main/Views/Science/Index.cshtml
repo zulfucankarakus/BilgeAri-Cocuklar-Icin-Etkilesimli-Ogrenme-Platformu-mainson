@@ -1,0 +1,218 @@
+@model BilimProjesi.Models.ScienceIndexViewModel
+
+@{
+    ViewData["Title"] = "Bilim Dünyası";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/bilim.css" asp-append-version="true" />
+    <style>
+        .note-card {
+            background-color: #fff3cd;
+            border: 2px dashed #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .note-name {
+            font-weight: bold;
+            color: #d63384;
+            font-size: 1.1rem;
+        }
+
+        .note-message {
+            font-style: italic;
+            color: #333;
+        }
+    </style>
+}
+
+<div class="bee-guide">
+    <img src="~/images/girismaskot.png" alt="Bilge Arı" class="bee-mascot" onclick="toggleSpeech()">
+    <div class="speech-bubble" id="speechBubble">
+        <p class="speech-text" id="speechText">Merhaba minik kaşif! Ben Bilge Arı! 🐝 Seninle harika şeyler
+            keşfedeceğiz!</p>
+    </div>
+</div>
+
+<section class="science-hero">
+    <div class="atom-container">
+        <div class="atom-core"></div>
+        <div class="electron">
+            <div class="electron-dot"></div>
+        </div>
+        <div class="electron">
+            <div class="electron-dot"></div>
+        </div>
+        <div class="electron">
+            <div class="electron-dot"></div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>🔬 Bilim Dünyası</h1>
+        <p>Süper eğlenceli keşiflerle dolu bir yolculuğa hazır mısın?</p>
+        <p>🌟 Hadi birlikte öğrenelim! 🌟</p>
+    </div>
+</section>
+
+<section class="topics-section" id="topics-section">
+    <div class="container">
+        <h2>Hangi Konuyu Keşfetmek İstersin?</h2>
+
+        <div class="row">
+            @foreach (var item in Model.ScienceItems)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="topic-card" data-topic="@item.Category" onclick="openCardViewerAndScroll('@item.Category')">
+                        <span class="topic-icon">@item.Icon</span>
+                        <h3 class="topic-title">@item.Title</h3>
+                        <p class="topic-description">
+                            @item.Content
+                        </p>
+                        <a href="javascript:void(0)" class="start-learning-btn">@item.Experiment</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <partial name="_FunFactPartial" />
+</div>
+
+<!-- GUESTBOOK SECTION -->
+<section class="guestbook-section" style="padding: 50px 0; background-color: #f9f9f9;">
+    <div class="container">
+        <h2 style="color: var(--dark-blue); text-align: center; margin-bottom: 30px;">📝 Küçük Kaşiflerden Mesajlar</h2>
+
+        <div class="text-center mb-4">
+            <a asp-action="Create" class="btn btn-warning btn-lg" style="color: white; font-weight: bold;">✍️ Kaşif Notu
+                Bırak</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                @if (Model.ExplorerNotes.Any())
+                {
+                    @foreach (var note in Model.ExplorerNotes)
+                    {
+                        <div class="note-card">
+                            <div class="note-name">🌟 Kaşif @note.ExplorerName diyor ki:</div>
+                            <div class="note-message">"@note.Message"</div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="text-center text-muted">
+                        <p>Henüz hiç not bırakılmamış. İlk notu sen bırak! 🚀</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="card-viewer-section" id="cardViewerSection">
+    <div class="container">
+        <div class="card-viewer-container" id="cardViewerContainer">
+            <button class="close-viewer" onclick="closeCardViewer()">×</button>
+
+            <div class="card-viewer-content-wrapper">
+                <div class="learning-card" id="learningCard"></div>
+            </div>
+
+            <div class="card-navigation">
+                <button class="nav-btn" id="prevBtn" onclick="previousCard()">← Önceki</button>
+                <span class="card-counter" id="cardCounter">1 / 7</span>
+                <button class="nav-btn" id="nextBtn" onclick="nextCard()">Sonraki →</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mini-games-section" id="miniGamesSection">
+    <div class="container">
+        <h2 style="color: var(--dark-blue); font-size: 3rem; text-align: center; margin-bottom: 50px;">🎮 Eğlenceli
+            Oyunlar</h2>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="game-card" onclick="startMatchingGameAndScroll()">
+                    <div style="font-size: 5rem; margin-bottom: 20px;">🎯</div>
+                    <h3 style="color: var(--dark-blue); font-size: 2rem; margin-bottom: 15px;">Eşleştirme Oyunu</h3>
+                    <p style="font-size: 1.1rem; color: #5D4037;">Aynı emojileri bul ve eşleştir! Hafızanı test et!</p>
+                    <button class="start-learning-btn" style="margin-top: 15px;">Oyuna Başla! 🎲</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="matching-game" id="matchingGame">
+            <div class="game-header">
+                <h3>🎯 Eşleştirme Oyunu</h3>
+                <span style="font-size: 1.2rem; font-weight: 700; color: var(--dark-blue);">Hamle: <span
+                        id="moveCount">0</span></span>
+            </div>
+            <div class="game-grid" id="gameGrid">
+            </div>
+            <div class="game-controls">
+                <button class="nav-btn" onclick="resetGame()">Yeniden Başla 🔄</button>
+                <button class="nav-btn" onclick="closeGame()"
+                    style="background: #ff4444; border-color: #cc0000; box-shadow: 0 4px 0 #cc0000;">Kapat ❌</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="quiz-section" id="quizSection">
+    <div class="container">
+        <h2>🎯 Bilgini Test Et!</h2>
+
+        <div class="quiz-start-card" id="quizStartCard">
+            <div class="quiz-start-icon">🧠</div>
+            <h3 style="color: var(--dark-blue); font-size: 1.8rem; margin-bottom: 15px; line-height: 1.3;">Bilge Arı'nın
+                Süper Testi!</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px; color: #5D4037; line-height: 1.5;">
+                Öğrendiklerini test etme zamanı! 15 harika soru seni bekliyor.<br>
+                Haydi, en yüksek puanı al! 🚀
+            </p>
+            <button class="quiz-start-btn" onclick="startQuiz()">Hadi Başlayalım! 🎮</button>
+        </div>
+
+        <div class="quiz-card" id="quizCard">
+            <div class="quiz-progress">
+                <div class="quiz-progress-bar" id="quizProgressBar">0%</div>
+            </div>
+            <div class="quiz-question-number" id="questionNumber"
+                style="text-align: center; font-size: 0.9rem; margin-bottom: 10px; color: var(--dark-blue); font-weight: 700;">
+                Soru 1 / 15</div>
+            <div class="quiz-question" id="quizQuestion">
+            </div>
+            <div id="quizOptions">
+            </div>
+            <div class="quiz-explanation" id="quizExplanation">
+            </div>
+            <button class="quiz-next-btn" id="quizNextBtn" onclick="nextQuestion()">Sonraki Soru →</button>
+        </div>
+
+        <div class="quiz-result-card" id="quizResultCard">
+            <div class="quiz-result-icon" id="resultIcon">
+            </div>
+            <h3 class="quiz-result-title" id="resultTitle">
+            </h3>
+            <p class="quiz-result-score" id="resultScore">
+            </p>
+            <p id="resultMessage" style="font-size: 1.1rem; color: #5D4037; margin-bottom: 20px; line-height: 1.5;">
+            </p>
+            <button class="quiz-restart-btn" onclick="restartQuiz()">Tekrar Dene! 🔄</button>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/bilim.js"></script>
+}

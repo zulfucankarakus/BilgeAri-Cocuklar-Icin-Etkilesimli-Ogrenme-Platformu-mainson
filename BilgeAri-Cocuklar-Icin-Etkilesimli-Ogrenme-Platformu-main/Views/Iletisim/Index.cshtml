@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Bize Ulaşın";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 border p-4 shadow-sm rounded bg-light">
+            <h2 class="text-center text-warning">🐝 Bilge Arı İletişim Formu</h2>
+            <hr />
+
+            @if (ViewBag.Sonuc != null)
+            {
+                <div class="alert alert-success">@ViewBag.Sonuc</div>
+            }
+
+            <form action="/Iletisim/MesajGonder" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Adınız:</label>
+                    <input type="text" name="ad" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">E-posta Adresiniz:</label>
+                    <input type="email" name="eposta" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mesajınız:</label>
+                    <textarea name="mesaj" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning w-100 text-white fw-bold">Mesajı Uçur!</button>
+            </form>
+        </div>
+    </div>
+</div>
