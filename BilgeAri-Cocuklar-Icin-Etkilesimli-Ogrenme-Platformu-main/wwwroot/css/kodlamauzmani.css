@@ -261,26 +261,50 @@
         /* Konuşma Balonu: Arının sözleri için */
         .speech-bubble {
             position: relative;
-            background: #ffffff;
-            border-radius: 15px;
-            padding: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #fffef7 100%);
+            border-radius: 20px;
+            padding: 18px 22px;
             font-size: 1.1rem;
             color: #333;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: background-color 0.3s;
+            box-shadow: 
+                0 8px 25px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 193, 7, 0.2);
+            z-index: 1;
+        }
+
+        .speech-bubble:hover {
+            transform: scale(1.02);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.15),
+                inset 0 1px 0 rgba(255,255,255,1);
+            border-color: rgba(255, 193, 7, 0.4);
         }
         
         /* Konuşma balonunun ok kısmı (arıya doğru işaret eden) */
         .speech-bubble::before {
             content: '';
             position: absolute;
-            left: -20px;
+            left: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 12px;
+            border-style: solid;
+            /* Sadece sağ kenarı görünür yaparak ok oluştur */
+            border-color: transparent rgba(255, 193, 7, 0.2) transparent transparent;
+            z-index: -1;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            left: -18px;
             top: 50%;
             transform: translateY(-50%);
             border-width: 10px;
             border-style: solid;
-            /* Sadece sağ kenarı görünür yaparak ok oluştur */
-            border-color: transparent white transparent transparent;
+            border-color: transparent #ffffff transparent transparent;
         }
 
         /* ===== ETKİNLİK KARTLARI ===== */
