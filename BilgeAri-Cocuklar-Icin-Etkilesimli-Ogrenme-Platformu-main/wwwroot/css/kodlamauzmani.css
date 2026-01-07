@@ -162,6 +162,8 @@
             max-width: 1000px;
             margin: 30px auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         /* ===== MASKOT KUTUSU (ARI KRALİÇE) ===== */
